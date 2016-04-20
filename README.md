@@ -4,8 +4,7 @@ Repositório para a situação de aprendizagem do SENAI/SC Florianópolis 3° fa
 
 Equipe:
 
-Guilherme Bertol da Silva
-Leonardo Bertol da Silva
+Guilherme Bertol da Silva / Leonardo Bertol da Silva
 
 Curso:Técnico em Informática para Internet
 
