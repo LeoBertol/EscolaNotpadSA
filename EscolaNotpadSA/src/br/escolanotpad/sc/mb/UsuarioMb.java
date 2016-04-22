@@ -68,7 +68,7 @@ public class UsuarioMb {
 	public String salvar(){
 		usuarioRN.salvar(usuario);
 		listaUsuarios = null;
-		return "";
+		return "userList";
 	}
 	
 }

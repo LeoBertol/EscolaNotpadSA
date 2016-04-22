@@ -39,13 +39,28 @@
 						value="#{usuarioMb.usuario.email}" />
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<h:inputSecret styleClass="form-control" id="exampleInputPassword1"
-						value="#{usuarioMb.usuario.senha}" />
+					<label for="exampleInputDataNascimento">Data de Nascimento</label>
+					<h:inputText type="date" styleClass="form-control" id="exampleInputDataNascimento"
+						value="#{usuarioMb.usuario.dataNascimento}" />
 				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputTipoUsuario">Tipo Usuário</label>
+					<h:selectOneMenu value="#{usuarioMb.usuario.tipoUsuario}">
+						<f:selectItem itemValue="1" itemLabel="Aluno" />
+						<f:selectItem itemValue="2" itemLabel="Professor" />
+						<f:selectItem itemValue="3" itemLabel="Administrador" />	 	   							
+					</h:selectOneMenu>
+				</div>	
+				
+				<div class="form-group">
+					<label for="exampleInputPassaword1">Senha</label>
+					<h:inputSecret redisplay="true" styleClass="form-control"
+						value="#{usuarioMb.usuario.senha}" id="exampleInputSenha" />
+				</div>
+			
 				<button type="reset" class="btn btn-default">Restaurar</button>
-				<h:commandButton styleClass="btn btn-success"
-					action="#{usuarioMb.salvar}" value="Salvar" />
+				<h:commandButton styleClass="btn btn-success" action="#{usuarioMb.salvar}" value="Salvar" />
 			</h:form>
 		</div>
 	</ui:define>

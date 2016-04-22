@@ -12,6 +12,8 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	private String dataNascimento;
+	private int tipoUsuario;
 
 	public Long getId() {
 		return id;
@@ -44,4 +46,23 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public int getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(int tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
+	
+	
 }
