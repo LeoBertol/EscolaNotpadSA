@@ -8,19 +8,19 @@ import br.escolanotpad.sc.model.entity.Usuario;
 public class UsuarioRN {
 
 	private UsuarioDAO dao;
-	
-	public UsuarioRN(){
+
+	public UsuarioRN() {
 		dao = new UsuarioDAO();
 	}
-	
-	public void salvar(Usuario usuario){
+
+	public void salvar(Usuario usuario) {
 		dao.salvar(usuario);
 	}
-	
-	public Usuario buscarPorId(Long id){
+
+	public Usuario buscarPorId(Long id) {
 		return dao.buscarPorId(id);
 	}
-	
+
 	public List<Usuario> listarUsuarios() {
 		return dao.listarUsuarios();
 	}
@@ -28,5 +28,5 @@ public class UsuarioRN {
 	public void excluir(Long id) {
 		dao.excluir(id);
 	}
-	
+
 }

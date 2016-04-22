@@ -10,7 +10,7 @@ import br.escolanotpad.sc.model.UsuarioRN;
 import br.escolanotpad.sc.model.entity.Usuario;
 
 @ManagedBean
-public class UsuarioMB {
+public class UsuarioMb {
 	private Usuario usuario;
 	private UsuarioRN usuarioRN;
 	private Long editarId;

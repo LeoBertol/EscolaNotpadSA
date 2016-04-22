@@ -19,7 +19,7 @@ public class UsuarioDAO {
 	}
 	
 	public List<Usuario> listarUsuarios(){
-		Query query = getEM().createQuery("From Usuarios", Usuario.class);
+		Query query = getEM().createQuery("From Usuario", Usuario.class);
 		return query.getResultList();
 	}
 	

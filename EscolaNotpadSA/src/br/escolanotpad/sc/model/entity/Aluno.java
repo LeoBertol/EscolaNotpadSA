@@ -5,13 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario {
+public class Aluno {
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String nome;
 	private String email;
-	private String senha;
 
 	public Long getId() {
 		return id;
@@ -37,11 +36,4 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 }

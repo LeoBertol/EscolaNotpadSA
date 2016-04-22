@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:viewParam name="id" value="#{usuarioMb.editarId}" />
+	<f:event listener="#{usuarioMb.carregarUsuario}" type="preRenderView" />
+</f:metadata>
+
+<ui:composition template="/WEB-INF/template/padrao.xhtml">
+	<ui:define name="conteudo">
+		<div class="page-header">
+			<h1>
+				Usuário <small>Novo</small>
+			</h1>
+		</div>
+		<div class="col-md-7">
+			<h:form>
+				<h:panelGroup rendered="#{not empty usuarioMb.usuario.id}">
+					<div class="form-group id">
+						<label for="exampleId">ID</label>
+						<h:inputText styleClass="form-control" readonly="true"
+							value="#{usuarioMb.usuario.id}" id="exampleId" />
+					</div>
+				</h:panelGroup>
+				<h:inputHidden value="#{usuarioMb.usuario.id}"  />
+				<div class="form-group">
+					<label for="exampleInputNome">Nome</label>
+					<h:inputText styleClass="form-control"
+						value="#{usuarioMb.usuario.nome}" id="exampleInputNome" />
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<h:inputText styleClass="form-control" id="exampleInputEmail1"
+						value="#{usuarioMb.usuario.email}" />
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<h:inputSecret styleClass="form-control" id="exampleInputPassword1"
+						value="#{usuarioMb.usuario.senha}" />
+				</div>
+				<button type="reset" class="btn btn-default">Restaurar</button>
+				<h:commandButton styleClass="btn btn-success"
+					action="#{usuarioMb.salvar}" value="Salvar" />
+			</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>
