@@ -10,7 +10,7 @@ import br.escolanotpad.sc.model.UsuarioRN;
 import br.escolanotpad.sc.model.entity.Usuario;
 
 @ManagedBean
-public class UsuarioMb {
+public class UsuarioMB {
 	private Usuario usuario;
 	private UsuarioRN usuarioRN;
 	private Long editarId;
@@ -69,6 +69,14 @@ public class UsuarioMb {
 		usuarioRN.salvar(usuario);
 		listaUsuarios = null;
 		return "userList";
+	}
+
+	public br.escolanotpad.sc.model.UsuarioRN getUsuarioRN() {
+		return usuarioRN;
+	}
+
+	public void setUsuarioRN(br.escolanotpad.sc.model.UsuarioRN usuarioRN) {
+		this.usuarioRN = usuarioRN;
 	}
 	
 }

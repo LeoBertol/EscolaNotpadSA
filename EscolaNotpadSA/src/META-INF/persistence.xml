@@ -7,7 +7,6 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>br.escolanotpad.sc.model.entity.Usuario</class>
-		<class>br.escolanotpad.sc.model.entity.Aluno</class>
 		
 		<properties>
 			<!-- dados da conexao -->

@@ -9,7 +9,7 @@
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
 	<ui:define name="conteudo">
 		<h:form>
-			<h:dataTable value="#{usuarioMb.listaUsuarios}" var="user"
+			<h:dataTable value="#{usuarioMB.listaUsuarios}" var="user"
 				styleClass="table">
 				<f:facet name="header">Usuários</f:facet>
 				<h:column>
@@ -26,7 +26,7 @@
 						<f:param name="id" value="#{user.id}" />
 					</h:link>
 					<h:commandLink onclick="return confirm('Tem certeza da exclusão do usuário #{user.nome}');" styleClass="btn btn-warning"
-						action="#{usuarioMb.excluir(user.id)}" value="Excluir" />
+						action="#{usuarioMB.excluir(user.id)}" value="Excluir" />
 				</h:column>
 
 			</h:dataTable>
