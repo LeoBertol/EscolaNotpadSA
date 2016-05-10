@@ -7,8 +7,8 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-	<f:viewParam name="id" value="#{usuarioMb.editarId}" />
-	<f:event listener="#{usuarioMb.carregarUsuario}" type="preRenderView" />
+	<f:viewParam name="id" value="#{usuarioMB.editarId}" />
+	<f:event listener="#{usuarioMB.carregarUsuario}" type="preRenderView" />
 </f:metadata>
 
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
@@ -20,33 +20,33 @@
 		</div>
 		<div class="col-md-7">
 			<h:form>
-				<h:panelGroup rendered="#{not empty usuarioMb.usuario.id}">
+				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<div class="form-group id">
 						<label for="exampleId">ID</label>
 						<h:inputText styleClass="form-control" readonly="true"
-							value="#{usuarioMb.usuario.id}" id="exampleId" />
+							value="#{usuarioMB.usuario.id}" id="exampleId" />
 					</div>
 				</h:panelGroup>
-				<h:inputHidden value="#{usuarioMb.usuario.id}"  />
+				<h:inputHidden value="#{usuarioMB.usuario.id}"  />
 				<div class="form-group">
 					<label for="exampleInputNome">Nome</label>
 					<h:inputText styleClass="form-control"
-						value="#{usuarioMb.usuario.nome}" id="exampleInputNome" />
+						value="#{usuarioMB.usuario.nome}" id="exampleInputNome" />
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email address</label>
 					<h:inputText styleClass="form-control" id="exampleInputEmail1"
-						value="#{usuarioMb.usuario.email}" />
+						value="#{usuarioMB.usuario.email}" />
 				</div>
 				<div class="form-group">
 					<label for="exampleInputDataNascimento">Data de Nascimento</label>
 					<h:inputText type="date" styleClass="form-control" id="exampleInputDataNascimento"
-						value="#{usuarioMb.usuario.dataNascimento}" />
+						value="#{usuarioMB.usuario.dataNascimento}" />
 				</div>
 				
 				<div class="form-group">
 					<label for="exampleInputTipoUsuario">Tipo Usuário</label>
-					<h:selectOneMenu value="#{usuarioMb.usuario.tipoUsuario}">
+					<h:selectOneMenu value="#{usuarioMB.usuario.tipoUsuario}">
 						<f:selectItem itemValue="1" itemLabel="Aluno" />
 						<f:selectItem itemValue="2" itemLabel="Professor" />
 						<f:selectItem itemValue="3" itemLabel="Administrador" />	 	   							
@@ -56,11 +56,11 @@
 				<div class="form-group">
 					<label for="exampleInputPassaword1">Senha</label>
 					<h:inputSecret redisplay="true" styleClass="form-control"
-						value="#{usuarioMb.usuario.senha}" id="exampleInputSenha" />
+						value="#{usuarioMB.usuario.senha}" id="exampleInputSenha" />
 				</div>
 			
 				<button type="reset" class="btn btn-default">Restaurar</button>
-				<h:commandButton styleClass="btn btn-success" action="#{usuarioMb.salvar}" value="Salvar" />
+				<h:commandButton styleClass="btn btn-success" action="#{usuarioMB.salvar}" value="Salvar" />
 			</h:form>
 		</div>
 	</ui:define>
