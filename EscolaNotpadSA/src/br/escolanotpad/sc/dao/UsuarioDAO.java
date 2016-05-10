@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import br.escolanotpad.sc.commons.JpaUtil;
 import br.escolanotpad.sc.model.entity.Usuario;
 
-public class UsuarioDAO {
+public class UsuarioDAO extends DAO {
 	
 	public void salvar(Usuario usuario){
 		getEM().merge(usuario);
@@ -28,9 +28,4 @@ public class UsuarioDAO {
 		getEM().remove(usuario);
 	}
 	
-	private EntityManager getEM() {
-		EntityManager em = JpaUtil.getEntityManager();
-		return em;
-	}
-
 }

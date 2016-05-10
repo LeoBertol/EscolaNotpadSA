@@ -9,10 +9,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><ui:insert name="title">Default title</ui:insert></title>
 	<h:outputStylesheet name="/bootstrap/css/bootstrap.css" />
-	<h:outputStylesheet name="/bootstrap/template/offcanvas.css" />
-	
+	<h:outputStylesheet name="/bootstrap-datepicker/bootstrap-datetimepicker.css" />
+	<h:outputStylesheet name="/bootstrap/template/offcanvas.css" />	
 	
 	<h:outputStylesheet name="/menu/css/simple-sidebar.css" />
+	<h:outputScript name="/js/jquery.min.js" />
 	
 	<style>
 		#body{
@@ -69,10 +70,9 @@
 
     </div>
 
-	<h:outputScript name="/jquery.min.js" />
+	
 	<h:outputScript name="/menu.js" />
-	<h:outputScript name="/bootstrap/js/bootstrap.js" />
-	<h:outputScript name="/bootstrap/template/offcanvas.js" />
+
 	
 	<script type="text/javascript">
     $("#menu-toggle").click(function(e) {
@@ -81,6 +81,11 @@
     });
     </script>
     
+    <h:outputScript name="/libs/moment-with-locales.js" />
+	<h:outputScript name="/libs/bootstrap/js/bootstrap.js" />
+	<h:outputScript name="/libs/bootstrap-datepicker/bootstrap-datetimepicker.js" />
+	<h:outputScript name="/libs/bootstrap/template/offcanvas.js" />
+	
 </h:body>
 
 </html>

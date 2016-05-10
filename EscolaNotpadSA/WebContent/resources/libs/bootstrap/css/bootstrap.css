@@ -263,12 +263,12 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('#{resource["/bootstrap/fonts/glyphicons-halflings-regular.eot"]}');
-  src: url('#{resource["/bootstrap/fonts/glyphicons-halflings-regular.eot"]}?#iefix') format('embedded-opentype'), 
-  url('#{resource["/bootstrap/fonts/glyphicons-halflings-regular.woff2"]}') format('woff2'), 
-  url('#{resource["/bootstrap/fonts/glyphicons-halflings-regular.woff"]}') format('woff'), 
-  url('#{resource["/bootstrap/fonts/glyphicons-halflings-regular.ttf"]}') format('truetype'), 
-  url('#{resource["/bootstrap/fonts/glyphicons-halflings-regular.svg"]}#glyphicons_halflingsregular') format('svg');
+  src: url('#{resource["/libs/bootstrap/fonts/glyphicons-halflings-regular.eot"]}');
+  src: url('#{resource["/libs/bootstrap/fonts/glyphicons-halflings-regular.eot"]}?#iefix') format('embedded-opentype'), 
+  url('#{resource["/libs/bootstrap/fonts/glyphicons-halflings-regular.woff2"]}') format('woff2'), 
+  url('#{resource["/libs/bootstrap/fonts/glyphicons-halflings-regular.woff"]}') format('woff'), 
+  url('#{resource["/libs/bootstrap/fonts/glyphicons-halflings-regular.ttf"]}') format('truetype'), 
+  url('#{resource["/libs/bootstrap/fonts/glyphicons-halflings-regular.svg"]}#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -5257,63 +5257,34 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: #0098CF;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
-
-.list-group-item2{
-position: relative;
-  display: block;
-  padding: 10px 15px;
-  margin-bottom: -1px;
-  background-color: #FFF;
-  text-decoration: none;
-}
-
 .list-group-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .list-group-item:last-child {
   margin-bottom: 0;
-  
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 a.list-group-item,
 button.list-group-item {
-  color: #000;
+  color: #555;
 }
-
-a.list-group-item2,
-button.list-group-item2 {
-  color: #000;
-}
-
 a.list-group-item .list-group-item-heading,
 button.list-group-item .list-group-item-heading {
-  color: #000;
+  color: #333;
 }
-
-a.list-group-item2 .list-group-item-heading,
-button.list-group-item2 .list-group-item-heading {
-  color: #000;
-}
-
 a.list-group-item:hover,
 button.list-group-item:hover,
 a.list-group-item:focus,
 button.list-group-item:focus {
-  color: #000;
+  color: #555;
   text-decoration: none;
-  background-color: #ABC7E8;
+  background-color: #f5f5f5;
 }
-
-
-a.list-group-item2:hover,
-button.list-group-item2:hover,
-a.list-group-item2:focus,
-button.list-group-item2:focus {
-  color: #000;
-  text-decoration: none;
-  background-color: #ABC7E8;
-}
-
 button.list-group-item {
   width: 100%;
   text-align: left;
@@ -5360,12 +5331,12 @@ button.list-group-item {
   color: #c7ddef;
 }
 .list-group-item-success {
-  color: #000;
-  background-color: #0098CF;
+  color: #3c763d;
+  background-color: #dff0d8;
 }
 a.list-group-item-success,
 button.list-group-item-success {
-  color: #000;
+  color: #3c763d;
 }
 a.list-group-item-success .list-group-item-heading,
 button.list-group-item-success .list-group-item-heading {
@@ -5375,8 +5346,8 @@ a.list-group-item-success:hover,
 button.list-group-item-success:hover,
 a.list-group-item-success:focus,
 button.list-group-item-success:focus {
-  color: #FFF;
-  background-color: #1B87C5;
+  color: #3c763d;
+  background-color: #d0e9c6;
 }
 a.list-group-item-success.active,
 button.list-group-item-success.active,
@@ -5485,6 +5456,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
+  background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);

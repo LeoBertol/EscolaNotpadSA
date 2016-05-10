@@ -38,18 +38,28 @@
 					<h:inputText styleClass="form-control" id="exampleInputEmail1"
 						value="#{usuarioMB.usuario.email}" />
 				</div>
+				
 				<div class="form-group">
-					<label for="exampleInputDataNascimento">Data de Nascimento</label>
-					<h:inputText type="date" styleClass="form-control" id="exampleInputDataNascimento"
-						value="#{usuarioMB.usuario.dataNascimento}" />
+					<label>Data da Nascimento</label>
+					<div class='input-group date datetimepicker'>
+						<h:inputText styleClass="form-control"
+							value="#{usuarioMB.usuario.dataNascimento}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:inputText>
+						<span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+                    </div>
 				</div>
+				
+				
 				
 				<div class="form-group">
 					<label for="exampleInputTipoUsuario">Tipo Usuário</label>
-					<h:selectOneMenu value="#{usuarioMB.usuario.tipoUsuario}">
-						<f:selectItem itemValue="1" itemLabel="Aluno" />
-						<f:selectItem itemValue="2" itemLabel="Professor" />
-						<f:selectItem itemValue="3" itemLabel="Administrador" />	 	   							
+					<h:selectOneMenu value="#{usuarioMB.usuario.perfil}">
+						<f:selectItem itemValue="Aluno" itemLabel="Aluno" />
+						<f:selectItem itemValue="Professor" itemLabel="Professor" />
+						<f:selectItem itemValue="Administrador" itemLabel="Administrador" />	 	   							
 					</h:selectOneMenu>
 				</div>	
 				
@@ -63,6 +73,8 @@
 				<h:commandButton styleClass="btn btn-success" action="#{usuarioMB.salvar}" value="Salvar" />
 			</h:form>
 		</div>
+		
+		<h:outputScript name="/js/datepicker-component.js" />
 	</ui:define>
 
 </ui:composition>

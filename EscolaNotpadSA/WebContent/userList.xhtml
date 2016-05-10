@@ -25,8 +25,14 @@
 					<h:outputText value="#{user.email}" />
 				</h:column>
 				<h:column>
+					<f:facet name="header">Data de Nascimento</f:facet>
+					<h:outputText value="#{user.dataNascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</h:column>
+				<h:column>
 					<f:facet name="header">Tipo</f:facet>
-					<h:outputText value="#{user.tipoUsuario}" />
+					<h:outputText value="#{user.perfil}" />
 				</h:column>
 				<h:column>
 					<h:link styleClass="btn btn-default" outcome="/userForm"

@@ -1,6 +1,10 @@
 package br.escolanotpad.sc.model.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -9,12 +13,13 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Enumerated(EnumType.STRING)
+	private Perfil perfil;
 	private String nome;
 	private String email;
 	private String senha;
-	private String dataNascimento;
-	private int tipoUsuario;
-
+	private Date dataNascimento;
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,22 +52,20 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public int getTipoUsuario() {
-		return tipoUsuario;
+	public Perfil getPerfil() {
+		return perfil;
 	}
 
-	public void setTipoUsuario(int tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
-	
-	
 	
 }
