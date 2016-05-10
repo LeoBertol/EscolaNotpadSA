@@ -10,51 +10,77 @@
 	<title><ui:insert name="title">Default title</ui:insert></title>
 	<h:outputStylesheet name="/bootstrap/css/bootstrap.css" />
 	<h:outputStylesheet name="/bootstrap/template/offcanvas.css" />
+	
+	
+	<h:outputStylesheet name="/menu/css/simple-sidebar.css" />
+	
+	<style>
+		#body{
+			font-family: 'Lato', Calibri, Arial, sans-serif;
+		}
+		
+		
+		.list-group-submenu {
+		  margin-left:20px;
+		}
+	</style>
 </h:head>
 
 <h:body>
-	<nav class="navbar navbar-fixed-top navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-				aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-		</div>
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li><h:link outcome="/index" value="Início" /></li>
-				<li><h:link outcome="/userForm" value="Cadastrar Usuarios" /></li>
-				<li><h:link outcome="/userList" value="Listar usuarios" /></li>
-			</ul>
-		</div>
-		<!-- /.nav-collapse -->
-	</div>
-	<!-- /.container --> </nav>
-	<!-- /.navbar -->
+	<div id="wrapper">
 
-	<div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div id="MainMenu">
+           
+  <div class="list-group panel">
+    
+   <h:link outcome="/index" value="Inicio" styleClass="list-group-item list-group-item-success"/>
+    
+    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Usuario</a>
+    <div class="collapse" id="demo3">
+      <h:link outcome="/userForm" value="Cadastrar Usuario" styleClass="list-group-item2"/>
+       <h:link outcome="/userList" value="Listar Usuarios" styleClass="list-group-item2"/>
+    </div>
+    
+    <a href="#turma" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Turmas</a>
+    <div class="collapse" id="turma">
+      <h:link outcome="/userForm" value="Cadastrar Turma" styleClass="list-group-item2"/>
+       <h:link outcome="/userForm" value="Listar Turmas" styleClass="list-group-item2"/>
+    </div>
+    
+    </div>
+</div>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-		<div class="row row-offcanvas row-offcanvas-right">
-
-			<div class="col-xs-12 col-sm-9">
-				<ui:insert name="conteudo">
+        <!-- Page Content -->
+       
+                    <div class="top_menu">
+                    	<a href="#menu-toggle" id="menu-toggle"><h:graphicImage  value="http://desenvolvimentosite.esy.es/adm/imagens/template/menu/ico_menu_alterado.png" width="50" height="50"/></a>
+                    </div>
+          
+        
+        
+        <ui:insert name="conteudo">
 					
-				</ui:insert>
-			</div>
-			
-		</div>
+		</ui:insert>
+        <!-- /#page-content-wrapper -->
 
-	</div>
-	<!--/.container-->
+    </div>
 
 	<h:outputScript name="/jquery.min.js" />
 	<h:outputScript name="/menu.js" />
 	<h:outputScript name="/bootstrap/js/bootstrap.js" />
 	<h:outputScript name="/bootstrap/template/offcanvas.js" />
+	
+	<script type="text/javascript">
+    $("#menu-toggle").click(function(e) {
+    	  e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    
 </h:body>
 
 </html>
