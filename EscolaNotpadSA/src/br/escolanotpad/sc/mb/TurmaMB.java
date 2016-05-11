@@ -6,17 +6,17 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 
-import br.escolanotpad.sc.model.entity.Turma;
 import br.escolanotpad.sc.model.TurmaRN;
-
+import br.escolanotpad.sc.model.entity.Turma;
 
 @ManagedBean
 public class TurmaMB {
-	
-	private List<Turma> listaTurmas;
-	private TurmaRN turmaRN;
 	private Turma turma;
+	private TurmaRN turmaRN;	
+	private Long editarId;
+	private List<Turma> listaTurmas;	
 	
 	@PostConstruct
 	public void init(){
@@ -44,27 +44,42 @@ public class TurmaMB {
 	}
 	
 	public String salvar() throws Throwable{
-		try {
-			turmaRN.salvar(turma);
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo",
-							"Salvo com sucesso."));
-			return "/escursoes";
-		} catch (IllegalArgumentException exception) {
-			exception.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro",
-							exception.getMessage()));
-		} catch (Exception e) {
-			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro",
-							e.getMessage()));
+		turmaRN.salvar(turma);
+		listaTurmas = null;
+		return "listaTurma";
+	}
+
+	public Long getEditarId() {
+		return editarId;
+	}
+
+	public void setEditarId(Long editarId) {
+		this.editarId = editarId;
+	}
+	
+	public void carregarTurma(ComponentSystemEvent event){
+		if(editarId == null){
+			return ;
 		}
+		
+		turma = turmaRN.buscarPorId(editarId);
+	}
+	
+	public String excluir(String id){
+		Long idExcluir = Long.parseLong(id);
+		turmaRN.excluir(idExcluir);
+		listaTurmas = null;
 		return "";
 	}
+	
+	public TurmaRN getTurmaRN() {
+		return turmaRN;
+	}
+
+	public void setTurmaRN(TurmaRN turmaRN) {
+		this.turmaRN = turmaRN;
+	}
+	
+	
 
 }

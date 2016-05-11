@@ -15,6 +15,7 @@ public class UsuarioMB {
 	private UsuarioRN usuarioRN;
 	private Long editarId;
 	private List<Usuario> listaUsuarios;
+	private List<Usuario> listaProfessores;
 	
 	@PostConstruct
 	public void depoisDeConstruir(){
@@ -46,6 +47,13 @@ public class UsuarioMB {
 		return listaUsuarios;
 	}
 
+	public List<Usuario> getListaProfessores() {
+		if(listaProfessores == null){
+			listaProfessores = usuarioRN.listarProfessores();
+		}
+		return listaProfessores;
+	}
+	
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}

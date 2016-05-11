@@ -24,6 +24,10 @@ public class UsuarioRN {
 	public List<Usuario> listarUsuarios() {
 		return dao.listarUsuarios();
 	}
+	
+	public List<Usuario> listarProfessores() {
+		return dao.listarProfessores();
+	}
 
 	public void excluir(Long id) {
 		dao.excluir(id);

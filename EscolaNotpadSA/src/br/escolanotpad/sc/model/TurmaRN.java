@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.escolanotpad.sc.dao.TurmaDAO;
 import br.escolanotpad.sc.model.entity.Turma;
-import br.escolanotpad.sc.model.entity.Perfil;
 
 public class TurmaRN {
 	
@@ -14,25 +13,21 @@ public class TurmaRN {
 	public TurmaRN(){
 		dao = new TurmaDAO();
 	}
+		
+	public void salvar(Turma turma) throws SQLException{
+		dao.salvar(turma);
+	}
+
+	public Turma buscarPorId(Long id) {
+		return dao.buscarPorId(id);
+	}
 	
 	public List<Turma> listar(){
 		return dao.listar();
-	}		
+	}
 	
-	public void salvar(Turma turma) throws IllegalArgumentException, Exception{
-		if(turma.getProfessor() == null){
-			throw new IllegalArgumentException("É preciso selecionar um Professor");
-		}
-		
-		if(!turma.getProfessor().getPerfil().equals(Perfil.Professor)){
-			throw new IllegalArgumentException("É preciso selecionar um Professor");
-		}
-		try{
-			dao.salvar(turma);
-		}catch (SQLException e) {
-			throw new Exception("Houve um erro na comunicaçãoo com "
-					+ "o banco de dados. Contate o administrador do site.");
-		}
+	public void excluir(Long id) {
+		dao.excluir(id);
 	}
 	
 	

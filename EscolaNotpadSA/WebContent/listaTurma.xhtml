@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/padrao.xhtml">
+	<ui:define name="conteudo">
+		<h:form>
+			<h:dataTable value="#{turmaMB.listaTurmas}" var="classe"
+				styleClass="table">
+				<f:facet name="header">Turmas</f:facet>
+				
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{classe.id}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{classe.nome}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Professor Responsavel</f:facet>
+					<h:outputText value="#{classe.professor}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Data de Início</f:facet>
+					<h:outputText value="#{classe.dataDeInicio}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Data de Termino</f:facet>
+					<h:outputText value="#{classe.dataDeTermino}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</h:column>
+				
+				<h:column>
+					<h:link styleClass="btn btn-default" outcome="/formularioTurma"
+						value="Editar">
+						<f:param name="id" value="#{classe.id}" />
+					</h:link>
+					<h:commandLink onclick="return confirm('Tem certeza da exclusão da turma #{classe.nome}');" styleClass="btn btn-warning"
+						action="#{turmaMB.excluir(classe.id)}" value="Excluir" />
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

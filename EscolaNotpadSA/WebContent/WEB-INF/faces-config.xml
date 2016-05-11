@@ -1,8 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
-    version="2.2">
-
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <managed-bean>
+  <managed-bean-name>usuarioMB</managed-bean-name>
+  <managed-bean-class>br.escolanotpad.sc.mb.UsuarioMB</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>editarId</property-name>
+   <property-class>java.lang.Long</property-class>
+   <value/>
+  </managed-property>
+  <managed-property>
+   <property-name>listaUsuarios</property-name>
+   <property-class>java.util.List</property-class>
+   <value/>
+  </managed-property>
+  <managed-property>
+   <property-name>usuario</property-name>
+   <property-class>br.escolanotpad.sc.model.entity.Usuario</property-class>
+   <value/>
+  </managed-property>
+  <managed-property>
+   <property-name>usuarioRN</property-name>
+   <property-class>br.escolanotpad.sc.model.UsuarioRN</property-class>
+   <value/>
+  </managed-property>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>turmaMB</managed-bean-name>
+  <managed-bean-class>br.escolanotpad.sc.mb.TurmaMB</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>listaTurmas</property-name>
+   <property-class>java.util.List</property-class>
+   <value/>
+  </managed-property>
+  <managed-property>
+   <property-name>turma</property-name>
+   <property-class>br.escolanotpad.sc.model.entity.Turma</property-class>
+   <value/>
+  </managed-property>
+  <managed-property>
+   <property-name>turmaRN</property-name>
+   <property-class>br.escolanotpad.sc.model.TurmaRN</property-class>
+   <value/>
+  </managed-property>
+ </managed-bean>
+ <application/>
 </faces-config>

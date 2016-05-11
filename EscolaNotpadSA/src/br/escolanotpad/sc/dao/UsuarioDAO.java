@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.escolanotpad.sc.commons.JpaUtil;
+import br.escolanotpad.sc.model.entity.Perfil;
 import br.escolanotpad.sc.model.entity.Usuario;
 
 public class UsuarioDAO extends DAO {
@@ -20,6 +21,12 @@ public class UsuarioDAO extends DAO {
 	
 	public List<Usuario> listarUsuarios(){
 		Query query = getEM().createQuery("From Usuario order by id desc", Usuario.class);
+		return query.getResultList();
+	}
+	
+	public List<Usuario> listarProfessores(){
+		Query query = getEM().createQuery("From Usuario where perfil = :perfil order by perfil", Usuario.class);
+		query.setParameter("perfil", Perfil.Professor);
 		return query.getResultList();
 	}
 	
