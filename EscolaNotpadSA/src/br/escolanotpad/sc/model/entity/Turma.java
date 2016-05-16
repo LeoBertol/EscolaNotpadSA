@@ -13,6 +13,7 @@ public class Turma {
 	@GeneratedValue
 	private Long id;
 	private String nome;
+	private String titulo;
 	private Date dataDeInicio;
 	private Date dataDeTermino;
 	@ManyToOne
@@ -47,6 +48,12 @@ public class Turma {
 	}
 	public void setProfessor(Usuario professor) {
 		this.professor = professor;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 	
 }

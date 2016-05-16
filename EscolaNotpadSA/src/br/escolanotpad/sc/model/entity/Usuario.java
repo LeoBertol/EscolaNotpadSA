@@ -18,6 +18,8 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	private String endereco;
+	private String cpf;
 	private Date dataNascimento;
 	
 	public Long getId() {
@@ -66,6 +68,22 @@ public class Usuario {
 
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 }

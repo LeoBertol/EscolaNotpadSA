@@ -7,10 +7,14 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
-	<ui:define name="conteudo">
-		<h:form>
-			<h:dataTable value="#{turmaMB.listaTurmas}" var="classe"
-				styleClass="table">
+	<ui:define name="conteudo"><div id="conteudo">
+		
+		<div id="quadro_listar_titulo">
+			<h1>Lista <small>Turmas</small></h1>
+		</div>
+		
+		<div id="listar_cadastros"><h:form>
+			<h:dataTable value="#{turmaMB.listaTurmas}" var="classe"	styleClass="table table-striped">
 				<f:facet name="header">Turmas</f:facet>
 				
 				<h:column>
@@ -24,8 +28,13 @@
 				</h:column>
 				
 				<h:column>
+					<f:facet name="header">Titulo</f:facet>
+					<h:outputText value="#{classe.titulo}" />
+				</h:column>
+				
+				<h:column>
 					<f:facet name="header">Professor Responsavel</f:facet>
-					<h:outputText value="#{classe.professor}" />
+					<h:outputText value="#{classe.professor.nome}" />
 				</h:column>
 				
 				<h:column>
@@ -43,16 +52,20 @@
 				</h:column>
 				
 				<h:column>
-					<h:link styleClass="btn btn-default" outcome="/formularioTurma"
-						value="Editar">
+					<h:link  outcome="/formularioTurma" title="Editar">
 						<f:param name="id" value="#{classe.id}" />
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 5px;"></span>
 					</h:link>
-					<h:commandLink onclick="return confirm('Tem certeza da exclusão da turma #{classe.nome}');" styleClass="btn btn-warning"
-						action="#{turmaMB.excluir(classe.id)}" value="Excluir" />
+			
+					<h:commandLink onclick="return confirm('Tem certeza da exclusão da turma #{classe.nome}');" title="Excluir"
+						action="#{turmaMB.excluir(classe.id)}"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span></h:commandLink>
 				</h:column>
 
 			</h:dataTable>
-		</h:form>
-	</ui:define>
+			
+
+
+		</h:form></div>
+	</div></ui:define>
 </ui:composition>
 </html>

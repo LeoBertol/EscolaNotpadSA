@@ -76,7 +76,7 @@ public class UsuarioMB {
 	public String salvar(){
 		usuarioRN.salvar(usuario);
 		listaUsuarios = null;
-		return "userList";
+		return "listaUsuario";
 	}
 
 	public br.escolanotpad.sc.model.UsuarioRN getUsuarioRN() {

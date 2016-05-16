@@ -18,7 +18,7 @@ public class TurmaDAO extends DAO{
 	}
 	
 	public List<Turma> listar(){
-		Query query = getEM().createQuery("From Turma", Turma.class);
+		Query query = getEM().createQuery("From Turma order by id desc", Turma.class);
 		return query.getResultList();
 	}
 	

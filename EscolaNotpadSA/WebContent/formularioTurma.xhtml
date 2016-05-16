@@ -12,13 +12,14 @@
 </f:metadata>
 
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
-	<ui:define name="conteudo">
-		<div class="page-header">
-			<h1>
-				Turma <small>Novo</small>
-			</h1>
+	<ui:define name="conteudo"><div id="conteudo"><div id="formulario_cadastro">
+		
+		<div id="quadro_cadastrar_titulo">
+			<h1>Cadastrar Turma <small>Nova</small></h1>
 		</div>
-		<div class="col-md-7">
+		
+		
+		<div id="quadro_cadastrar"><div class="col-md-7">
 			<h:form>
 				<h:panelGroup rendered="#{not empty turmaMB.turma.id}">
 					<div class="form-group id">
@@ -28,54 +29,56 @@
 					</div>
 				</h:panelGroup>
 				<h:inputHidden value="#{turmaMB.turma.id}"  />
-				<div class="form-group">
-					<label for="exampleInputNome">Nome</label>
-					<h:inputText styleClass="form-control"
-						value="#{turmaMB.turma.nome}" id="exampleInputNome" />
-				</div>
 				
-				<div class="form-group">
+					<label for="exampleInputNome">Nome</label>
+					<h:inputText styleClass="form-control"	value="#{turmaMB.turma.nome}" id="exampleInputNome" />
+				
+					<label for="exampleInputTitulo">Titulo</label>
+					<h:inputText styleClass="form-control"	value="#{turmaMB.turma.titulo}" id="exampleInputTitulo" />
+				
+				
+			
 					<label>Professor Responsavel</label>
 					<h:selectOneMenu styleClass="form-control" value="#{turmaMB.turma.professor}">
-						<f:selectItem itemLabel="-" />						
+						<f:selectItem itemLabel="-- Selecione --" />						
 						<f:selectItems value="#{usuarioMB.listaProfessores}" var="professor" 
 							itemLabel="#{professor.nome}" itemValue="#{professor}" />
 					</h:selectOneMenu>
-				</div>
 				
-				<div class="form-group">
+			
 					<label>Data de Início</label>
 					<div class='input-group date datetimepicker'>
 						<h:inputText styleClass="form-control"
 							value="#{turmaMB.turma.dataDeInicio}">
-							<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:inputText>
 						<span class="input-group-addon">
 	                        <span class="glyphicon glyphicon-calendar"></span>
 	                    </span>
                     </div>
-				</div>
 				
-				<div class="form-group">
-					<label>Data de Terminoo</label>
+			
+					<label>Data de Termino</label>
 					<div class='input-group date datetimepicker'>
 						<h:inputText styleClass="form-control"
 							value="#{turmaMB.turma.dataDeTermino}">
-							<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:inputText>
 						<span class="input-group-addon">
 	                        <span class="glyphicon glyphicon-calendar"></span>
 	                    </span>
                     </div>
-				</div>
+				
 							
-				<button type="reset" class="btn btn-default">Restaurar</button>
+				<button type="reset" class="btn btn-default">Cancelar</button>
 				<h:commandButton styleClass="btn btn-success" action="#{turmaMB.salvar}" value="Salvar" />
+			
 			</h:form>
+		</div>
 		</div>
 		
 		<h:outputScript name="/js/datepicker-component.js" />
-	</ui:define>
+	</div></div></ui:define>
 
 </ui:composition>
 </html>

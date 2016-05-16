@@ -13,7 +13,12 @@
 	<h:outputStylesheet name="/bootstrap/template/offcanvas.css" />	
 	
 	<h:outputStylesheet name="/menu/css/simple-sidebar.css" />
+	<h:outputStylesheet name="/estilo_geral/estilo_css.css" />
 	<h:outputScript name="/js/jquery.min.js" />
+	
+	<h:outputScript name="/js/tooltip.js" />
+	
+	<h:outputStylesheet name="/libs/foundation-icons/foundation-icons.css" />
 	
 	<style>
 		#body{
@@ -24,6 +29,7 @@
 		.list-group-submenu {
 		  margin-left:20px;
 		}
+		
 	</style>
 </h:head>
 
@@ -35,19 +41,40 @@
             <div id="MainMenu">
            
   <div class="list-group panel">
+  
+   <h:link outcome="/index" value="Inicio" styleClass="list-group-item list-group-item-success">
+   	<span class="glyphicon glyphicon-home " aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+   </h:link>
     
-   <h:link outcome="/index" value="Inicio" styleClass="list-group-item list-group-item-success"/>
-    
-    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Usuario</a>
+    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><span class="glyphicon glyphicon-user" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>Usuario</a>
     <div class="collapse" id="demo3">
-      <h:link outcome="/userForm" value="Cadastrar Usuario" styleClass="list-group-item2"/>
-       <h:link outcome="/userList" value="Listar Usuarios" styleClass="list-group-item2"/>
+      <h:link outcome="/formularioUsuario" value="Cadastrar Usuario" styleClass="list-group-item2">
+      	<span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+      </h:link>
+      <h:link outcome="/listaUsuario" value="Listar Usuarios" styleClass="list-group-item2">
+       	<span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+      </h:link>
+   
     </div>
     
-    <a href="#turma" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Turmas</a>
+    <a href="#turma" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><span class="glyphicon glyphicon-education" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>Turmas</a>
     <div class="collapse" id="turma">
-      <h:link outcome="/formularioTurma" value="Cadastrar Turma" styleClass="list-group-item2"/>
-       <h:link outcome="/listaTurma" value="Listar Turmas" styleClass="list-group-item2"/>
+      <h:link outcome="/formularioTurma" value="Cadastrar Turma" styleClass="list-group-item2">
+      	<span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+      </h:link>
+       <h:link outcome="/listaTurma" value="Listar Turmas" styleClass="list-group-item2">
+       	<span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+       </h:link>
+    </div>
+    
+    <a href="#curso" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><i class="step fi-address-book size-21" style="float: left; margin-right: -4px;"></i>Cursos</a>
+    <div class="collapse" id="curso">
+      <h:link outcome="/index" value="Cadastrar Curso" styleClass="list-group-item2">
+      	<span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+      </h:link>
+       <h:link outcome="/index" value="Listar Cursos" styleClass="list-group-item2">
+       	<span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+       </h:link>
     </div>
     
     </div>
@@ -64,7 +91,9 @@
         
         
         <ui:insert name="conteudo">
-					
+			<div id="conteudo">
+			
+			</div>		
 		</ui:insert>
         <!-- /#page-content-wrapper -->
 
