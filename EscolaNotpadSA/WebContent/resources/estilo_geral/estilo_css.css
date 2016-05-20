@@ -32,6 +32,11 @@
 	padding: 12px;
 }
 */
+
+.textareaformulario{
+	resize: none;	
+}
+
 #quadro_cadastrar input[type=submit]{
 	text-transform: uppercase;
 	cursor: pointer;
