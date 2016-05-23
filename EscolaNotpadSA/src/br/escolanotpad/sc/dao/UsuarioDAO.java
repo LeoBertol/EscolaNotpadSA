@@ -24,15 +24,21 @@ public class UsuarioDAO extends DAO {
 		return query.getResultList();
 	}
 	
+	public void excluir(Long id){
+		Usuario usuario = getEM().getReference(Usuario.class, id);
+		getEM().remove(usuario);
+	}
+	
 	public List<Usuario> listarProfessores(){
 		Query query = getEM().createQuery("From Usuario where perfil = :perfil order by perfil", Usuario.class);
 		query.setParameter("perfil", Perfil.Professor);
 		return query.getResultList();
 	}
 	
-	public void excluir(Long id){
-		Usuario usuario = getEM().getReference(Usuario.class, id);
-		getEM().remove(usuario);
+	public List<Usuario> listarAlunos(){
+		Query query = getEM().createQuery("From Usuario where perfil = :perfil order by perfil", Usuario.class);
+		query.setParameter("perfil", Perfil.Aluno);
+		return query.getResultList();
 	}
-	
+		
 }

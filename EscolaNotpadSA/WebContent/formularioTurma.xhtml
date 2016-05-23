@@ -68,6 +68,48 @@
 	                        <span class="glyphicon glyphicon-calendar"></span>
 	                    </span>
                     </div>
+                    
+                    <fieldset>
+				<legend>Alunos Participantes</legend>
+				<div class="row">
+					<div class="col-sm-9">
+						<h:selectOneMenu id="uiSelecionaCliente" styleClass="form-control" value="#{turmaMB.alunoSelecionado}">
+							<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+							<f:selectItems value="#{usuarioMB.listaAlunos}" var="cli"
+								itemLabel="#{cli.nome}" itemValue="#{cli}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-sm-3">
+						<h:commandLink styleClass="btn btn-success">
+							<f:ajax event="click" execute="uiSelecionaCliente"
+								listener="#{turmaMB.adicionarAluno}"
+								render="uiClientesEscursao uiSelecionaCliente" />
+							<span class="glyphicon glyphicon-plus"></span>
+						</h:commandLink>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<h:dataTable styleClass="table-condensed table-hover"
+							id="uiClientesEscursao" value="#{turmaMB.turma.alunosTurma}"
+							var="cliente">
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:outputText value="#{cliente.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">controle</f:facet>
+								<h:commandLink>
+									<f:attribute name="idCliente" value="#{cliente}" />
+									<f:ajax event="click" listener="#{turmaMB.excluirAluno}" execute="@form" render="@form" />
+									
+									<span class="glyphicon glyphicon-remove-circle"></span>
+								</h:commandLink> 
+							</h:column>
+						</h:dataTable>
+					</div>
+				</div>
+			</fieldset>
 				
 							
 				<button type="reset" class="btn btn-default">Cancelar</button>

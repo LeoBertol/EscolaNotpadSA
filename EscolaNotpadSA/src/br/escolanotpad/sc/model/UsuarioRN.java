@@ -25,12 +25,16 @@ public class UsuarioRN {
 		return dao.listarUsuarios();
 	}
 	
-	public List<Usuario> listarProfessores() {
-		return dao.listarProfessores();
-	}
-
 	public void excluir(Long id) {
 		dao.excluir(id);
+	}
+	
+	public List<Usuario> listarAlunos() {
+		return dao.listarAlunos();
+	}
+	
+	public List<Usuario> listarProfessores() {
+		return dao.listarProfessores();
 	}
 
 }

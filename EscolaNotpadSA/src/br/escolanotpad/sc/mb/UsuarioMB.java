@@ -16,6 +16,7 @@ public class UsuarioMB {
 	private Long editarId;
 	private List<Usuario> listaUsuarios;
 	private List<Usuario> listaProfessores;
+	private List<Usuario> listaAlunos;
 	
 	@PostConstruct
 	public void depoisDeConstruir(){
@@ -47,6 +48,13 @@ public class UsuarioMB {
 		return listaUsuarios;
 	}
 
+	public List<Usuario> getListaAlunos() {
+		if(listaAlunos == null){
+			listaAlunos = usuarioRN.listarAlunos();
+		}
+		return listaAlunos;
+	}
+	
 	public List<Usuario> getListaProfessores() {
 		if(listaProfessores == null){
 			listaProfessores = usuarioRN.listarProfessores();
@@ -56,6 +64,11 @@ public class UsuarioMB {
 	
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
+	}
+
+	
+	public void setListaAlunos(List<Usuario> listaAlunos) {
+		this.listaAlunos = listaAlunos;
 	}
 
 	public void carregarUsuario(ComponentSystemEvent event){
@@ -79,12 +92,4 @@ public class UsuarioMB {
 		return "listaUsuario";
 	}
 
-	public br.escolanotpad.sc.model.UsuarioRN getUsuarioRN() {
-		return usuarioRN;
-	}
-
-	public void setUsuarioRN(br.escolanotpad.sc.model.UsuarioRN usuarioRN) {
-		this.usuarioRN = usuarioRN;
-	}
-	
 }

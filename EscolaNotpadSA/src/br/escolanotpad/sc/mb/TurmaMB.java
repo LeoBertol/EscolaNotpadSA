@@ -1,27 +1,37 @@
 package br.escolanotpad.sc.mb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ComponentSystemEvent;
 
 import br.escolanotpad.sc.model.TurmaRN;
 import br.escolanotpad.sc.model.entity.Turma;
+import br.escolanotpad.sc.model.entity.Usuario;
 
+@ViewScoped
 @ManagedBean
 public class TurmaMB {
+	private List<Turma> listaTurmas;
+	private TurmaRN turmaRN;
 	private Turma turma;
-	private TurmaRN turmaRN;	
+		
 	private Long editarId;
-	private List<Turma> listaTurmas;	
+		
+	
+	private Usuario alunoSelecionado;
 	
 	@PostConstruct
 	public void init(){
 		turmaRN = new TurmaRN();
 		turma = new Turma();
+		turma.setAlunosTurma(new ArrayList<Usuario>());
 	}
 
 	public List<Turma> getListaTurmas() {
@@ -43,12 +53,14 @@ public class TurmaMB {
 		this.turma = turma;
 	}
 	
-	public String salvar() throws Throwable{
-		turmaRN.salvar(turma);
-		listaTurmas = null;
-		return "listaTurma";
+	public Usuario getAlunoSelecionado() {
+		return alunoSelecionado;
 	}
 
+	public void setAlunoSelecionado(Usuario alunoSelecionado) {
+		this.alunoSelecionado = alunoSelecionado;
+	}
+	
 	public Long getEditarId() {
 		return editarId;
 	}
@@ -56,6 +68,44 @@ public class TurmaMB {
 	public void setEditarId(Long editarId) {
 		this.editarId = editarId;
 	}
+	
+	public void carregarEdicao(){
+		if(editarId != null && !FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest()){
+			turma = turmaRN.buscarPorId(editarId);
+		}
+	}
+	
+	public void adicionarAluno(AjaxBehaviorEvent event){
+		if(turma.getAlunosTurma().contains(alunoSelecionado)){
+			return;
+		}
+		turma.getAlunosTurma().add(alunoSelecionado);
+		alunoSelecionado = null;
+	}
+	
+	public void excluirAluno(AjaxBehaviorEvent event){
+		Usuario aluno = (Usuario) event.getComponent().getAttributes().get("idAluno");
+		turma.getAlunosTurma().remove(aluno);
+	}
+	
+	public String salvar() throws Throwable{
+		try{
+			turmaRN.salvar(turma);
+			listaTurmas = null;
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo", "Salvo Com Sucesso"));
+			return "listaTurma";
+		} catch (IllegalArgumentException exception){
+			exception.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro",exception.getMessage()));
+		}catch (Exception e){
+			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage()));
+		}
+		return "";
+	}
+	
+	
+	
 	
 	public void carregarTurma(ComponentSystemEvent event){
 		if(editarId == null){
@@ -80,6 +130,16 @@ public class TurmaMB {
 		this.turmaRN = turmaRN;
 	}
 	
+	
+	
+	/* Parte De Selecionar Aluno Na Turma */
+	
+
+	
+	
+	
+	
+
 	
 
 }

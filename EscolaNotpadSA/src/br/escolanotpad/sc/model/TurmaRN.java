@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.escolanotpad.sc.dao.TurmaDAO;
 import br.escolanotpad.sc.model.entity.Turma;
+import br.escolanotpad.sc.model.entity.Usuario;
 
 public class TurmaRN {
 	
@@ -14,6 +15,10 @@ public class TurmaRN {
 		dao = new TurmaDAO();
 	}
 		
+	public List<Turma> listar(){
+		return dao.listar();
+	}
+	
 	public void salvar(Turma turma) throws SQLException{
 		dao.salvar(turma);
 	}
@@ -22,9 +27,7 @@ public class TurmaRN {
 		return dao.buscarPorId(id);
 	}
 	
-	public List<Turma> listar(){
-		return dao.listar();
-	}
+	
 	
 	public void excluir(Long id) {
 		dao.excluir(id);

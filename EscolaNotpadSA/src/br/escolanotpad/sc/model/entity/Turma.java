@@ -1,10 +1,12 @@
 package br.escolanotpad.sc.model.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,6 +20,8 @@ public class Turma {
 	private Date dataDeTermino;
 	@ManyToOne
 	private Usuario professor;
+	@ManyToMany
+	private List<Usuario> alunosTurma;
 	
 	public Long getId() {
 		return id;
@@ -54,6 +58,12 @@ public class Turma {
 	}
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+	public List<Usuario> getAlunosTurma() {
+		return alunosTurma;
+	}
+	public void setAlunosTurma(List<Usuario> alunosTurma) {
+		this.alunosTurma = alunosTurma;
 	}
 	
 }
