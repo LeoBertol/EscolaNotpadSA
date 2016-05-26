@@ -15,6 +15,7 @@ public class Curso {
 	private Long id;
 	private String nome;
 	private String titulo;
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
 	private float mensalidade;
 	private Date dataDeInicioInscricoes;
