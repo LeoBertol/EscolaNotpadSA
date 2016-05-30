@@ -8,17 +8,16 @@
 	
 <f:metadata>
 	<f:viewParam name="id" value="#{cursoMB.editarId}" />
-	<f:event listener="#{cursoMB.carregarCurso}" type="preRenderView" />
+	<f:event listener="#{cursoMB.carregarCurso}" type="preRenderView" />				
 </f:metadata>
 
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
 	<ui:define name="conteudo"><div id="conteudo"><div id="formulario_cadastro">
 		
 		<div id="quadro_cadastrar_titulo">
-			<h1>Cadastrar curso <small>Nova</small></h1>
+			<h1>Cadastrar curso <small>Novo</small></h1>
 		</div>
-		
-		
+				
 		<div id="quadro_cadastrar"><div class="col-md-7">
 			<h:form>
 				<h:panelGroup rendered="#{not empty cursoMB.curso.id}">
@@ -66,7 +65,7 @@
                     </div>
 				
 							
-				<button type="reset" class="btn btn-default">Cancelar</button>
+				<button type="reset">Limpar</button>
 				<h:commandButton styleClass="btn btn-success" action="#{cursoMB.salvar}" value="Salvar" />
 			
 			</h:form>

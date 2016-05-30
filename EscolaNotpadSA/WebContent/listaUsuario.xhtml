@@ -10,7 +10,7 @@
 	<ui:define name="conteudo"><div id="conteudo">
 		
 		<div id="quadro_listar_titulo">
-			<h1>Lista <small>Usuarios</small></h1>
+			<h1>Lista <small>Usuários</small></h1>
 		</div>
 		
 		<div id="listar_cadastros"><h:form>
@@ -68,16 +68,13 @@
 			        <h4 class="modal-title" id="myModalLabel">Informações Sobre <b><h:outputText value="#{user.nome}" /></b></h4>
 			      </div>
 			      <div class="modal-body">
-			      	<p><b>ID:</b> <h:outputText value="#{user.id}" /></p>
-			      	<p><b>Nome:</b> <h:outputText value="#{user.nome}" /></p>
-			      	<p><b>Email:</b> <h:outputText value="#{user.email}" /></p>
-			      	<p><b>CPF:</b> <h:outputText value="#{user.endereco}" /></p>
-			      	<p><b>Tipo:</b> <h:outputText value="#{user.perfil}" /></p>
-			      	<p><b>Data De Nascimento:</b> <h:outputText value="#{user.dataNascimento}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></p>
-			     	<p><b>Endereço:</b> <h:outputText value="#{user.endereco}" /></p>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+			      	<p><b>ID: </b> <h:outputText value="#{user.id}" /></p>
+			      	<p><b>Nome: </b> <h:outputText value="#{user.nome}" /></p>
+			      	<p><b>Email: </b> <h:outputText value="#{user.email}" /></p>
+			      	<p><b>CPF: </b> <h:outputText value="#{user.endereco}" /></p>
+			      	<p><b>Tipo: </b> <h:outputText value="#{user.perfil}" /></p>
+			      	<p><b>Data De Nascimento: </b> <h:outputText value="#{user.dataNascimento}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></p>
+			     	<p><b>Endereço: </b> <h:outputText value="#{user.endereco}" /></p>
 			      </div>
 			    </div>
 			  </div>

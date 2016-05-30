@@ -10,7 +10,7 @@
 	<ui:define name="conteudo"><div id="conteudo">
 		
 		<div id="quadro_listar_titulo">
-			<h1>Lista <small>cursos</small></h1>
+			<h1>Lista <small>Cursos</small></h1>
 		</div>
 		
 		<div id="listar_cadastros"><h:form>
@@ -51,21 +51,18 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="myModalLabel">Informações Sobre <b><h:outputText value="#{curso.nome}" /></b></h4>
+									<h4 class="modal-title" id="myModalLabel">Informações Sobre <b><h:outputText value="#{course.nome}" /></b></h4>
 								</div>
 								<div class="modal-body">
-									<p><b>ID:</b> <h:outputText value="#{course.id}" /></p>
-									<p><b>Curso:</b> <h:outputText value="#{course.nome}" /></p>
-									<p><b>Titulo do Curso:</b> <h:outputText value="#{course.titulo}" /></p>
+									<p><b>ID: </b> <h:outputText value="#{course.id}" /></p>
+									<p><b>Curso: </b> <h:outputText value="#{course.nome}" /></p>
+									<p><b>Titulo do Curso: </b> <h:outputText value="#{course.titulo}" /></p>
 									<p><b>Descrição:</b></p>
 									<h:inputTextarea readonly="true" cols="30" rows="10" value="#{course.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
 								
-									<p><b>Mensalidade:</b> <h:outputText value="#{course.mensalidade}" /></p>
-									<p><b>Data de Início das Incrições:</b> <h:outputText value="#{course.dataDeInicioInscricoes}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></p>
-									<p><b>Data de Termino das Incrições:</b> <h:outputText value="#{course.dataDeTerminoInscricoes}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></p>
-								</div>
-								<div class="modal-footer">
-								<button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+									<p><b>Mensalidade: </b> <h:outputText value="#{course.mensalidade}" /></p>
+									<p><b>Data de Início das Incrições: </b> <h:outputText value="#{course.dataDeInicioInscricoes}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></p>
+									<p><b>Data de Termino das Incrições: </b> <h:outputText value="#{course.dataDeTerminoInscricoes}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></p>
 								</div>
 							</div>
 						</div>
