@@ -1,11 +1,14 @@
 package br.escolanotpad.sc.mb;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.event.ComponentSystemEvent;
+import javax.servlet.http.Part;
 
+import br.escolanotpad.sc.commons.UploadUtil;
 import br.escolanotpad.sc.model.UsuarioRN;
 import br.escolanotpad.sc.model.entity.Usuario;
 
@@ -14,6 +17,7 @@ public class UsuarioMB {
 	private Usuario usuario;
 	private UsuarioRN usuarioRN;
 	private Long editarId;
+	private Part uploadeDeImagem;
 	private List<Usuario> listaUsuarios;
 	private List<Usuario> listaProfessores;
 	private List<Usuario> listaAlunos;
@@ -87,9 +91,19 @@ public class UsuarioMB {
 	}
 	
 	public String salvar(){
-		usuarioRN.salvar(usuario);
-		listaUsuarios = null;
-		return "listaUsuario";
+		try{
+			String nome = UploadUtil.moverArquivo(uploadeDeImagem, usuario.getFotoPerfil());
+			
+			usuario.setFotoPerfil(nome);							
+			usuarioRN.salvar(usuario);
+			listaUsuarios = null;
+			return "listaUsuario";
+			
+		} catch(IOException e){
+			e.printStackTrace();
+			return "";
+		}
+				
 	}
 
 }

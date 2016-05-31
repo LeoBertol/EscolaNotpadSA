@@ -21,6 +21,7 @@ public class Usuario {
 	private String endereco;
 	private String cpf;
 	private Date dataNascimento;
+	private String fotoPerfil;
 	
 	public Long getId() {
 		return id;
@@ -85,5 +86,13 @@ public class Usuario {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
+
+	public String getFotoPerfil() {
+		return fotoPerfil;
+	}
+
+	public void setFotoPerfil(String fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
+	}
+
 }

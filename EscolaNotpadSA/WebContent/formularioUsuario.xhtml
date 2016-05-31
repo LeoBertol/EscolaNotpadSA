@@ -19,7 +19,7 @@
 		</div>
 		
 		<div id="quadro_cadastrar"><div class="col-md-7">
-			<h:form>
+			<h:form enctype="multipart/form-data">
 				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<div class="form-group id">
 						<label for="exampleId">ID</label>
@@ -66,7 +66,14 @@
 					<label for="exampleInputPassaword1">Senha</label>
 					<h:inputSecret redisplay="true" styleClass="form-control" 
 					value="#{usuarioMB.usuario.senha}" id="exampleInputSenha" />
-				
+					
+					<div class="form-group">
+						<label>Foto de Perfil</label>
+						<h:inputFile styleClass="form-control" value="#{usuarioMB.usuario.fotoPerfil}" />
+					</div>
+					<h:graphicImage rendered="#{not empty usuarioMB.usuario.fotoPerfil}"
+					styleClass="img-responsive"	name="img/uploads/#{usuarioMB.usuario.fotoPerfil}" />
+								
 				<button type="reset" >Limpar</button>
 				<h:commandButton action="#{usuarioMB.salvar}" value="Salvar" />
 				
