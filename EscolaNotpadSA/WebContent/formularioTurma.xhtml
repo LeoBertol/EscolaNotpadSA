@@ -8,7 +8,7 @@
 	
 <f:metadata>
 	<f:viewParam name="id" value="#{turmaMB.editarId}" />
-	<f:event listener="#{turmaMB.carregarTurma}" type="preRenderView" />
+	<f:event listener="#{turmaMB.carregarEdicao}" type="preRenderView" />
 </f:metadata>
 
 <ui:composition template="/WEB-INF/template/padrao.xhtml">
@@ -36,13 +36,20 @@
 					<label for="exampleInputTitulo">Titulo</label>
 					<h:inputText styleClass="form-control"	value="#{turmaMB.turma.titulo}" id="exampleInputTitulo" />
 				
-				
+					
 			
 					<label>Professor Responsavel</label>
 					<h:selectOneMenu styleClass="form-control" value="#{turmaMB.turma.professor}">
 						<f:selectItem itemLabel="-- Selecione --" />						
 						<f:selectItems value="#{usuarioMB.listaProfessores}" var="professor" 
 							itemLabel="#{professor.nome}" itemValue="#{professor}" />
+					</h:selectOneMenu>
+					
+					<label>Curso Pertencente</label>
+					<h:selectOneMenu styleClass="form-control" value="#{turmaMB.turma.curso}">
+						<f:selectItem itemLabel="-- Selecione --" />						
+						<f:selectItems value="#{cursoMB.listaCursos}" var="curso" 
+							itemLabel="#{curso.nome}" itemValue="#{curso}" />
 					</h:selectOneMenu>
 				
 			
@@ -68,8 +75,9 @@
 	                        <span class="glyphicon glyphicon-calendar"></span>
 	                    </span>
                     </div>
-                    
-                    <fieldset>
+             
+             <div id="inserirAluno">       
+             <fieldset>
 				<legend>Alunos Participantes</legend>
 				<div class="row">
 					<div class="col-sm-9">
@@ -89,28 +97,28 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-12">
-						<h:dataTable styleClass="table-condensed table-hover"
+					<center><div class="col-sm-12">
+						<h:dataTable styleClass="table table-bordered"
 							id="uiClientesEscursao" value="#{turmaMB.turma.alunosTurma}"
-							var="cliente">
+							var="cliente" style="margin-top: 5px;">
 							<h:column>
 								<f:facet name="header">Nome</f:facet>
 								<h:outputText value="#{cliente.nome}" />
 							</h:column>
-							<h:column>
-								<f:facet name="header">controle</f:facet>
+							<h:column >
+								<f:facet name="header">Controle</f:facet>
 								<h:commandLink>
-									<f:attribute name="idCliente" value="#{cliente}" />
+									<f:attribute name="idAluno" value="#{cliente}" />
 									<f:ajax event="click" listener="#{turmaMB.excluirAluno}" execute="@form" render="@form" />
 									
-									<span class="glyphicon glyphicon-remove-circle"></span>
+									 <i class="step fi-x size-18" style="float: left; margin-right: -4px;"></i>
 								</h:commandLink> 
 							</h:column>
 						</h:dataTable>
-					</div>
+					</div></center>
 				</div>
 			</fieldset>
-				
+			</div>	
 							
 				<button type="reset" class="btn btn-default">Cancelar</button>
 				<h:commandButton styleClass="btn btn-success" action="#{turmaMB.salvar}" value="Salvar" />

@@ -20,6 +20,8 @@ public class Turma {
 	private Date dataDeTermino;
 	@ManyToOne
 	private Usuario professor;
+	@ManyToOne
+	private Curso curso;
 	@ManyToMany
 	private List<Usuario> alunosTurma;
 	
@@ -52,6 +54,12 @@ public class Turma {
 	}
 	public void setProfessor(Usuario professor) {
 		this.professor = professor;
+	}
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 	public String getTitulo() {
 		return titulo;
