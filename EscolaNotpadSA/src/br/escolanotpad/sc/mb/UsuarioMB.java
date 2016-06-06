@@ -92,9 +92,9 @@ public class UsuarioMB {
 	
 	public String salvar(){
 		try{
-			String nome = UploadUtil.moverArquivo(uploadeDeImagem, usuario.getFotoPerfil());
+			String nomeFotoPerfil = UploadUtil.moverArquivo(uploadeDeImagem, usuario.getFotoPerfil());
 			
-			usuario.setFotoPerfil(nome);							
+			usuario.setFotoPerfil(nomeFotoPerfil);							
 			usuarioRN.salvar(usuario);
 			listaUsuarios = null;
 			return "listaUsuario";
