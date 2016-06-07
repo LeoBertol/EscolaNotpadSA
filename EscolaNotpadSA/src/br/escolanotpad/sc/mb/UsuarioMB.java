@@ -66,6 +66,13 @@ public class UsuarioMB {
 		return listaProfessores;
 	}
 	
+	/*public List<Usuario> getListaAlunosTurma() {
+		if(listaAlunosTurma == null){
+			listaAlunosTurma = usuarioRN.listaAlunosTurma();
+		}
+		return listaAlunosTurma;
+	}*/
+	
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}
@@ -75,13 +82,7 @@ public class UsuarioMB {
 		this.listaAlunos = listaAlunos;
 	}
 	
-	public Part getUploadedFotoPerfil() {
-		return uploadedFotoPerfil;
-	}
-
-	public void setUploadedFotoPerfil(Part uploadedFotoPerfil) {
-		this.uploadedFotoPerfil = uploadedFotoPerfil;
-	}
+	
 
 	public void carregarUsuario(ComponentSystemEvent event){
 		if(editarId == null){

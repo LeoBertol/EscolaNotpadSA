@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/padrao.xhtml">
+	<ui:define name="conteudo">
+		<div class="col-sm-8">
+			<h:panelGroup rendered="#{not empty param.msg}">
+				<div class="alert alert-danger">
+					<h:outputText value="#{param.msg}" />
+				</div>
+			</h:panelGroup>
+			<h:messages styleClass="alert alert-warning"></h:messages>
+			<h:form>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-10">
+						<h:inputText styleClass="form-control" id="inputEmail3"
+							value="#{sessaoMB.emailForm}">
+							<f:passThroughAttribute name="placeholder" value="E-mail" />
+						</h:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">Senha</label>
+					<div class="col-sm-10">
+						<h:inputSecret styleClass="form-control" id="inputPassword3"
+							value="#{sessaoMB.senhaForm}">
+							<f:passThroughAttribute name="placeholder" value="Senha" />
+						</h:inputSecret>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-5">
+						<h:commandButton styleClass="btn btn-success" value="Entrar"
+							action="#{sessaoMB.entrar}" />
+						<button type="reset" class="btn btn-default">Restaurar</button>
+					</div>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

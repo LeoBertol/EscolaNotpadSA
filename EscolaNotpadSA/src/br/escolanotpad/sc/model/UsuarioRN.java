@@ -36,5 +36,9 @@ public class UsuarioRN {
 	public List<Usuario> listarProfessores() {
 		return dao.listarProfessores();
 	}
+	
+	public Usuario buscarPorEmail(String email) {
+		return dao.buscarPorEmail(email);
+	}
 
 }
