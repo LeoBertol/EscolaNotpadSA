@@ -13,12 +13,12 @@ import javax.servlet.http.Part;
 public class UploadUtil {
 
 	private static final Map<String, String> TIPOS_PERMITIDOS = new HashMap<String, String>();
-	private static final String PASTA_UPLOADS = "resources/img/uploads";
+	private static final String PASTA_UPLOADS = "/resources/img/uploads/";
 	
 	static{
-		TIPOS_PERMITIDOS.put("image/jpeg", ".jpg");
-		TIPOS_PERMITIDOS.put("image/png", ".png");
-		TIPOS_PERMITIDOS.put("image/gif", ".gif");
+		TIPOS_PERMITIDOS.put("image/jpeg",".jpg");
+		TIPOS_PERMITIDOS.put("image/png",".png");
+		TIPOS_PERMITIDOS.put("image/gif",".gif");
 	}
 	
 	public static String moverArquivo(Part arquivoUploaded, String arquivoAntigo) throws IOException{

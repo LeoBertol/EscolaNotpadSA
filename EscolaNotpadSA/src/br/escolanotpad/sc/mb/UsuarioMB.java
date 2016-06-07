@@ -17,7 +17,7 @@ public class UsuarioMB {
 	private Usuario usuario;
 	private UsuarioRN usuarioRN;
 	private Long editarId;
-	private Part uploadeDeImagem;
+	private Part uploadedFotoPerfil;
 	private List<Usuario> listaUsuarios;
 	private List<Usuario> listaProfessores;
 	private List<Usuario> listaAlunos;
@@ -74,6 +74,14 @@ public class UsuarioMB {
 	public void setListaAlunos(List<Usuario> listaAlunos) {
 		this.listaAlunos = listaAlunos;
 	}
+	
+	public Part getUploadedFotoPerfil() {
+		return uploadedFotoPerfil;
+	}
+
+	public void setUploadedFotoPerfil(Part uploadedFotoPerfil) {
+		this.uploadedFotoPerfil = uploadedFotoPerfil;
+	}
 
 	public void carregarUsuario(ComponentSystemEvent event){
 		if(editarId == null){
@@ -92,7 +100,7 @@ public class UsuarioMB {
 	
 	public String salvar(){
 		try{
-			String nomeFotoPerfil = UploadUtil.moverArquivo(uploadeDeImagem, usuario.getFotoPerfil());
+			String nomeFotoPerfil = UploadUtil.moverArquivo(uploadedFotoPerfil, usuario.getFotoPerfil());
 			
 			usuario.setFotoPerfil(nomeFotoPerfil);							
 			usuarioRN.salvar(usuario);
