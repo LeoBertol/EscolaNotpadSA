@@ -82,7 +82,13 @@ public class UsuarioMB {
 		this.listaAlunos = listaAlunos;
 	}
 	
-	
+	public Part getUploadedFotoPerfil() {
+		return uploadedFotoPerfil;
+	}
+
+	public void setUploadedFotoPerfil(Part uploadedFotoPerfil) {
+		this.uploadedFotoPerfil = uploadedFotoPerfil;
+	}
 
 	public void carregarUsuario(ComponentSystemEvent event){
 		if(editarId == null){
