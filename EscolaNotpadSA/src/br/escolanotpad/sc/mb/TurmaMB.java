@@ -93,7 +93,7 @@ public class TurmaMB {
 			turmaRN.salvar(turma);
 			listaTurmas = null;
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo", "Salvo Com Sucesso"));
-			return "listaTurma";
+			return "/admin/listaTurma";
 		} catch (IllegalArgumentException exception){
 			exception.printStackTrace();
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro",exception.getMessage()));
@@ -129,17 +129,5 @@ public class TurmaMB {
 	public void setTurmaRN(TurmaRN turmaRN) {
 		this.turmaRN = turmaRN;
 	}
-	
-	
-	
-	/* Parte De Selecionar Aluno Na Turma */
-	
-
-	
-	
-	
-	
-
-	
 
 }

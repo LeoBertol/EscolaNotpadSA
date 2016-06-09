@@ -6,10 +6,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="/WEB-INF/template/padrao.xhtml">
+<ui:composition template="/WEB-INF/template/padrao_aluno.xhtml">
 
 	<ui:define name="conteudo">
-		<center><h:graphicImage value="http://i.imgur.com/444bSQb.png"/></center>
+		<center>
+			<h:graphicImage value="http://i.imgur.com/Y88o3mn.png" style="margin-top: 50px;"/>
+			<h1 style="margin-bottom: -15px;">Seja Bem Vindo Aluno</h1>
+			<h1><i><h:outputText value="#{sessaoMB.nomeUsuarioLogado}"/></i></h1>
+		</center>
 		
 		
 	</ui:define>

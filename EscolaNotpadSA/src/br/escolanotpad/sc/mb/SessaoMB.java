@@ -16,6 +16,7 @@ public class SessaoMB {
 	private String emailForm;
 	private String senhaForm;
 	private Usuario usuarioLogado;
+	private String redirecionamento;
 	
 	public String getEmailForm() {
 		return emailForm;
@@ -67,8 +68,7 @@ public class SessaoMB {
 				
 		usuarioLogado = usuario;
 		
-		return "index?faces-redirect=true";
-			
+		return "/admin/index?faces-redirect=true";
 			
 	}
 

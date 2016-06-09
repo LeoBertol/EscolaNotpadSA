@@ -38,7 +38,7 @@ public class CursoMB {
 	public String salvar() throws Throwable{
 		cursoRN.salvar(curso);
 		listaCursos = null;
-		return "listaCurso";
+		return "/admin/listaCurso";
 	}
 	
 	public void carregarCurso(ComponentSystemEvent event){

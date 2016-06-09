@@ -106,7 +106,7 @@ public class UsuarioMB {
 			usuario.setFotoPerfil(nomeFotoPerfil);							
 			usuarioRN.salvar(usuario);
 			listaUsuarios = null;
-			return "listaUsuario";
+			return "/admin/listaUsuario";
 			
 		} catch(IOException e){
 			e.printStackTrace();
