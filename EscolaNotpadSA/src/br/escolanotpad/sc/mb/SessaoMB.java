@@ -45,13 +45,21 @@ public class SessaoMB {
 		return usuarioLogado != null && usuarioLogado.getPerfil().equals(Perfil.Administrador);
 	}
 	
+	public boolean ehAluno(){
+		return usuarioLogado != null && usuarioLogado.getPerfil().equals(Perfil.Aluno);
+	}
+	
+	public boolean ehProfessor(){
+		return usuarioLogado != null && usuarioLogado.getPerfil().equals(Perfil.Professor);
+	}
+	
 	public String getNomeUsuarioLogado(){
 		return usuarioLogado == null ? "" : usuarioLogado.getNome();
 	}
 	
 	public String sair(){
 		usuarioLogado = null;
-		return "login?faces-redirect=true";
+		return "/login?faces-redirect=true";
 	}
 	
 	public String entrar(){
@@ -62,13 +70,21 @@ public class SessaoMB {
 				!usuario.getEmail().equalsIgnoreCase(emailForm) ||
 				!usuario.getSenha().equals(senhaForm)){
 			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage("E-mail ou senha n√£o confere."));
+					new FacesMessage("E-mail ou senha n„o confere."));
 			return "";
 		}
 				
 		usuarioLogado = usuario;
 		
-		return "/admin/index?faces-redirect=true";
+		if(usuario.getPerfil().equals(Perfil.Administrador)){
+			redirecionamento = "/admin/index?faces-redirect=true";
+		}else if(usuario.getPerfil().equals(Perfil.Aluno)){
+			redirecionamento = "/aluno/index?faces-redirect=true";
+		}else if(usuario.getPerfil().equals(Perfil.Professor)){
+			redirecionamento = "/prof/index?faces-redirect=true";
+		}
+		
+		return redirecionamento;
 			
 	}
 
