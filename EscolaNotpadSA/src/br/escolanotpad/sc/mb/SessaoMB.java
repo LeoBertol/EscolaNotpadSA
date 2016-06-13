@@ -70,7 +70,7 @@ public class SessaoMB {
 				!usuario.getEmail().equalsIgnoreCase(emailForm) ||
 				!usuario.getSenha().equals(senhaForm)){
 			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage("E-mail ou senha não confere."));
+					new FacesMessage("E-mail ou senha estão incorretos"));
 			return "";
 		}
 				

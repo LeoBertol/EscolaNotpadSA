@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.escolanotpad.sc.mb.SessaoMB;
 
-@WebFilter(urlPatterns="/admin/*")
-public class SessaoFilter implements Filter {
+@WebFilter(urlPatterns="/prof/*")
+public class SessaoFilterProfessor implements Filter {
 
 	@Override
 	public void destroy() {}
@@ -27,7 +27,7 @@ public class SessaoFilter implements Filter {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		SessaoMB sessaoMb = (SessaoMB) httpServletRequest.getSession().getAttribute("sessaoMB"); 
 		
-		if(sessaoMb == null || !sessaoMb.ehAdmin()){
+		if(sessaoMb == null || !sessaoMb.ehProfessor()){
 			HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 			httpServletResponse.sendRedirect(
 					httpServletRequest.getContextPath().concat("/login.xhtml?msg=Acesso restrito"));

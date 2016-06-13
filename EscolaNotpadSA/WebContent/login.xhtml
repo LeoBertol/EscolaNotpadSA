@@ -12,16 +12,15 @@
 	
 		<center><h:graphicImage value="http://i.imgur.com/Y88o3mn.png" width="120" height="100" style="margin-top: 35px;"/></center>
 		<center><h1>Entrar Na Escola</h1></center>
+		<h:panelGroup rendered="#{not empty param.msg}">
+			<center><div class="alert alert-danger" style="width: 350px;">
+				<h:outputText value="#{param.msg}" />
+			</div></center>
+		</h:panelGroup>	
 		<center><h:messages styleClass="alert alert-danger" style="width: 350px;"></h:messages></center>
 		<center><div id="area_login" style="width: 350px; border: 1px solid #d8dee2; border-radius: 5px;
 		 padding: 20px; font-siZe: 14px; background-color: #FFF;">
-			<h:panelGroup rendered="#{not empty param.msg}">
-				<div class="alert alert-danger">
-					<h:outputText value="#{param.msg}" />
-				</div>
-			</h:panelGroup>
-			
-			
+				
 			<h:form>
 				<div class="form-group">
 					<label for="exampleInputEmail1" style="text-align: left; float: left; font-weight: normal;">Email</label>
