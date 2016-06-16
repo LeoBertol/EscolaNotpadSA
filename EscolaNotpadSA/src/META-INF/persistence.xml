@@ -11,7 +11,8 @@
 		<class>br.escolanotpad.sc.model.entity.Curso</class>	
 		<class>br.escolanotpad.sc.model.entity.Pergunta</class>
 		<class>br.escolanotpad.sc.model.entity.Resposta</class>
-		<class>br.escolanotpad.sc.model.entity.Prova</class>	
+		<class>br.escolanotpad.sc.model.entity.Prova</class>
+		<class>br.escolanotpad.sc.model.entity.Arquivo</class>	
 		
 		<properties>
 			<!-- dados da conexao -->
