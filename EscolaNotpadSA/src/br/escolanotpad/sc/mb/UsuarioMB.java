@@ -99,10 +99,14 @@ public class UsuarioMB {
 	}
 	
 	public String excluir(String id){
+				
 		Long idExcluir = Long.parseLong(id);
+		Usuario usuario = usuarioRN.buscarPorId(idExcluir);		
+		UploadUtil.removerArquivo(usuario.getFotoPerfil());
+		
 		usuarioRN.excluir(idExcluir);
 		listaUsuarios = null;
-		return "";
+		return "/admin/listaUsuario";
 	}
 	
 	public String salvar(){

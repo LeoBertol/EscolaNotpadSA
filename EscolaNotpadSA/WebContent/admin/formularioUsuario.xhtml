@@ -71,8 +71,9 @@
 						<label>Foto de Perfil</label>
 						<h:inputFile styleClass="form-control" value="#{usuarioMB.uploadedFotoPerfil}" />
 					</div>
+					<h:inputHidden value="#{usuarioMB.usuario.fotoPerfil}"/>
 					<h:graphicImage rendered="#{not empty usuarioMB.usuario.fotoPerfil}"
-					styleClass="img-responsive"	name="img/uploads/#{usuarioMB.uploadedFotoPerfil}" />
+					styleClass="img-responsive"	name="img/uploads/#{usuarioMB.usuario.fotoPerfil}" />
 								
 				<button type="reset" >Limpar</button>
 				<h:commandButton action="#{usuarioMB.salvar}" value="Salvar" />
