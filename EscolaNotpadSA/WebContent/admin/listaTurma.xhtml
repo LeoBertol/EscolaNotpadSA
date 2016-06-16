@@ -53,11 +53,15 @@
 				
 				<h:column>
 				
-					<button type="button" data-toggle="modal" data-target="#myModal" style="background-color: transparent; border: none; float: left">
-						<span class="glyphicon glyphicon-search" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+					<button type="button" data-toggle="modal" data-target="#myModal2#{classe.id}" style="background-color: transparent; border: none; float: left">
+						<span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
 					</button>
 				
-					<h:link  outcome="/formularioTurma" title="Editar">
+					<button type="button" data-toggle="modal" data-target="#myModal#{classe.id}" style="background-color: transparent; border: none; float: left">
+						<span class="glyphicon glyphicon-search" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+					</button>
+					
+					<h:link  outcome="/admin//formularioTurma" title="Editar">
 						<f:param name="id" value="#{classe.id}" />
 						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 5px;"></span>
 					</h:link>
@@ -65,7 +69,7 @@
 					<h:commandLink onclick="return confirm('Tem certeza da exclusão da turma #{classe.nome}');" title="Excluir"
 						action="#{turmaMB.excluir(classe.id)}"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span></h:commandLink>
 				
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal fade" id="myModal#{classe.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
 					      <div class="modal-header">
@@ -91,9 +95,67 @@
 					    </div>
 					  </div>
 					</div>
+					
+					<div class="modal fade" id="myModal2#{classe.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Arquivos da Turma <b><h:outputText value="#{classe.titulo}" /></b></h4>
+					      </div>
+					      <div class="modal-body">
+					      
+					      		<h:dataTable value="#{arquivoMB.listaArquivos}" var="arquivo"	styleClass="table table-striped">
+					      		
+									<h:column>
+									
+										<p><b>Descrição: </b></p>
+										<h:inputTextarea readonly="true" cols="30" rows="10" value="#{arquivo.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
+										
+									</h:column>
+									
+								</h:dataTable>
+									
+					      
+					      		<h:column>			     
+					     			<button type="button" data-toggle="modal" data-target="#myModal2#{classe.id}" style="background-color: transparent; border: none; float: left">
+										<span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+									</button>
+								</h:column>
+								
+								<h:column>			     
+					     			<button type="button" data-toggle="modal" data-target="#myModal2#{classe.id}" style="background-color: transparent; border: none; float: left">
+										<span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+									</button>
+								</h:column>
+					      					     
+					      					     
+					      	<p><b></b> <h:outputText value="#{arquivo.nome}" /></p>
+									<p><b>Por: </b></p>
+									<p><b>Data: </b></p>
+									
+									  <h:dataTable value="#{arquivoMB.listaArquivos}" var="arquivo"	styleClass="table table-striped">
+									  <h:column>
+									<p><b>Descrição: </b></p>
+									<h:inputTextarea readonly="true" cols="30" rows="10" value="#{arquivo.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
+									</h:column>
+									</h:dataTable>
+									
+									<center>
+										<p>
+											<b>Arquivo:</b>
+										</p>
+										<h:graphicImage styleClass="img-thumbnail"
+											style="height:200px; width: 200px;"
+											name="compartilhamentoDeArquivo/#{arquivo.nomeArquivo}" />
+									</center>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				
 				
 				</h:column>
-
 			</h:dataTable>
 			
 

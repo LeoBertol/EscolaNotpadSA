@@ -34,11 +34,11 @@
 				
 				<h:column>
 				
-					<button type="button" data-toggle="modal" data-target="#myModal" style="background-color: transparent; border: none; float: left">
+					<button type="button" data-toggle="modal" data-target="#myModal#{course.id}" style="background-color: transparent; border: none; float: left">
 						<span class="glyphicon glyphicon-search" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
 					</button>
 					
-					<h:link  outcome="/formularioCurso" title="Editar">
+					<h:link  outcome="/admin/formularioCurso" title="Editar">
 						<f:param name="id" value="#{course.id}" />
 						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 5px;"></span>
 					</h:link>
@@ -46,7 +46,7 @@
 					<h:commandLink onclick="return confirm('Tem certeza da exclusão do curso #{course.nome}');" title="Excluir"
 						action="#{cursoMB.excluir(course.id)}"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span></h:commandLink>
 						
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal fade" id="myModal#{course.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
