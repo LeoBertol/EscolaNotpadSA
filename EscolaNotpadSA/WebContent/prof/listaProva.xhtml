@@ -63,12 +63,29 @@
 								<div class="modal-body">
 									<p><b>ID: </b> <h:outputText value="#{prova.id}" /></p>
 									<p><b>Titulo: </b> <h:outputText value="#{prova.tituloProva}" /></p>
+									<p><b>Turma Pertencente: </b> <h:outputText value="#{prova.turma.titulo}" /></p>
+									<p><b>Data Da Prova: </b>
+										<h:outputText value="#{prova.dataProva}">
+											<f:convertDateTime pattern="dd/MM/yyyy" />
+										</h:outputText></p>
 									<center><p><b>Descrição</b></p></center>
-									<h:inputTextarea readonly="true" cols="30" rows="10" value="#{pergunta.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
+									<h:inputTextarea readonly="true" cols="30" rows="5" value="#{prova.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
+									<hr />
+							     	<h3>Perguntas Da Prova</h3>
+							     	<h:dataTable value="#{prova.perguntasProva}" var="pergunta" styleClass="table table-striped">
+							     		<h:column>
+							     			<p><h:outputText value="#{pergunta.tituloPergunta}" /></p>
+							     		</h:column>
+							     	</h:dataTable>
+								
+								
+								
 								</div>
 							</div>
 						</div>
 					</div>
+					
+					
 			
 				</h:column>
 

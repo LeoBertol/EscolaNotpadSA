@@ -8,7 +8,7 @@
 	
 <f:metadata>
 	<f:viewParam name="id" value="#{provaMB.editarId}" />
-	<f:event listener="#{provaMB.carregarProva}" type="preRenderView" />				
+	<f:event listener="#{provaMB.carregarEdicao}" type="preRenderView" />				
 </f:metadata>
 
 <ui:composition template="/WEB-INF/template/padrao_professor.xhtml">
@@ -44,18 +44,13 @@
                     </span>
                 </div>
                 
-                <ui:remove><label>Turma Pertencente</label>
+                <label>Turma Pertencente</label>
 				<h:selectOneMenu styleClass="form-control" value="#{provaMB.prova.turma}">
 					<f:selectItem itemLabel="-- Selecione --" />						
 					<f:selectItems value="#{turmaMB.listaTurmas}" var="turma" 
 						itemLabel="#{turma.titulo}" itemValue="#{turma}" />
-				</h:selectOneMenu></ui:remove>
-				
-				<label for="exampleInputTitulo">Turma Pertencente</label>
-				<h:inputText styleClass="form-control"	value="#{provaMB.prova.turma}" id="exampleInputTurma" />
-				
-				
-				
+				</h:selectOneMenu>
+								
 				<label for="exampleInputTitulo">Descrição Da Prova</label>
 				<h:inputTextarea cols="30" rows="10"  styleClass="form-control textareaformulario" value="#{provaMB.prova.descricao}" id="exampleInputDescricao" />
 					

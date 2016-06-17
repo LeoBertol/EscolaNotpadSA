@@ -35,6 +35,71 @@
 					<label for="exampleInputTitulo">Descrição</label>
 					<h:inputTextarea cols="30" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.pergunta.descricao}" id="exampleInputDescricao" />
 					
+
+					<ui:remove><div id="tabs_cadastro">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+						  <li role="presentation" class="active"><a href="#A" aria-controls="A" role="tab" data-toggle="tab">Alternativa A</a></li>
+						  <li role="presentation"><a href="#B" aria-controls="B" role="tab" data-toggle="tab">Alternativa B</a></li>
+						  <li role="presentation"><a href="#C" aria-controls="C" role="tab" data-toggle="tab">Alternativa C</a></li>
+						  <li role="presentation"><a href="#D" aria-controls="D" role="tab" data-toggle="tab">Alternativa D</a></li>
+						  <li role="presentation"><a href="#E" aria-controls="E" role="tab" data-toggle="tab">Alternativa E</a></li>
+						</ul>
+						
+						<!-- Tab panes -->
+						<div class="tab-content">
+						  <div role="tabpanel" class="tab-pane fade in active" id="A" style="padding: 5px;">
+						   	<label for="exampleInputResposta1">Descrição Alternativa A</label>
+							<h:inputTextarea cols="20" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.respostaA}" id="exampleInputDescricao1" />
+							<label for="exampleInputTitulo">Tipo Resposta</label>
+							<h:selectOneMenu styleClass="form-control" value="#{respostaMB.resposta.correta}">
+								<f:selectItem itemLabel="Verdadeiro" itemValue="#{true}"/>						
+								<f:selectItem itemLabel="Falso" itemValue="#{false}"/>	
+							</h:selectOneMenu>
+						</div>
+						   <div role="tabpanel" class="tab-pane fade" id="B" style="padding: 5px;">
+						   	
+						   	<label for="exampleInputResposta2">Descrição Alternativa B</label>
+							<h:inputTextarea cols="20" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.respostaB}" id="exampleInputDescricao2" />
+							
+							<label for="exampleInputTitulo">Tipo Resposta</label>
+							<h:selectOneMenu styleClass="form-control" value="#{respostaMB.resposta.correta}">
+								<f:selectItem itemLabel="Verdadeiro" itemValue="#{true}"/>						
+								<f:selectItem itemLabel="Falso" itemValue="#{false}"/>	
+							</h:selectOneMenu>
+						</div>
+						   <div role="tabpanel" class="tab-pane fade" id="C" style="padding: 5px;">
+						   	<label for="exampleInputResposta3">Descrição Alternativa C</label>
+							<h:inputTextarea cols="20" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.respostaC}" id="exampleInputDescricao3" />
+							<label for="exampleInputTitulo">Tipo Resposta</label>
+							<h:selectOneMenu styleClass="form-control" value="#{respostaMB.resposta.correta}">
+								<f:selectItem itemLabel="Verdadeiro" itemValue="#{true}"/>						
+								<f:selectItem itemLabel="Falso" itemValue="#{false}"/>	
+							</h:selectOneMenu>
+						</div>
+						   <div role="tabpanel" class="tab-pane fade" id="D" style="padding: 5px;">
+						   	<label for="exampleInputResposta4">Descrição Alternativa D</label>
+							<h:inputTextarea cols="20" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.respostaD}" id="exampleInputDescricao4" />
+							<label for="exampleInputTitulo">Tipo Resposta</label>
+							<h:selectOneMenu styleClass="form-control" value="#{respostaMB.resposta.correta}">
+								<f:selectItem itemLabel="Verdadeiro" itemValue="#{true}"/>						
+								<f:selectItem itemLabel="Falso" itemValue="#{false}"/>	
+							</h:selectOneMenu>
+						</div>
+					   <div role="tabpanel" class="tab-pane fade" id="E" style="padding: 5px;">
+					   		<label for="exampleInputResposta5">Descrição Alternativa E</label>
+							<h:inputTextarea cols="20" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.respostaE}" id="exampleInputDescricao5" />
+							<label for="exampleInputTitulo">Tipo Resposta</label>
+							<h:selectOneMenu styleClass="form-control" value="#{respostaMB.resposta.correta}">
+								<f:selectItem itemLabel="Verdadeiro" itemValue="#{true}"/>						
+								<f:selectItem itemLabel="Falso" itemValue="#{false}"/>	
+							</h:selectOneMenu>
+						</div>
+					  </div>
+					</div></ui:remove>
+					
+				
+					
 				<button type="reset">Limpar</button>
 				<h:commandButton styleClass="btn btn-success" action="#{perguntaMB.salvar}" value="Salvar" />
 			
@@ -42,7 +107,7 @@
 		</div>
 		</div>
 		
-		<h:outputScript name="/js/datepicker-component.js" />
+		<h:outputScript name="/js/tab.js" />
 	</div></div></ui:define>
 
 </ui:composition>

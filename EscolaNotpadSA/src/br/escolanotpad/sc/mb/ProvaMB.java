@@ -45,6 +45,13 @@ public class ProvaMB {
 		this.listaProvas = listaProvas;
 	}
 
+	public void carregarEdicao(){
+		if(editarId != null && !FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest()){
+			prova = provaRN.buscarPorId(editarId);
+		}
+	}
+	
+	
 	public void excluirPergunta(AjaxBehaviorEvent event){
 		Pergunta pergunta = (Pergunta) event.getComponent().getAttributes().get("idPergunta");
 		prova.getPerguntasProva().remove(pergunta);

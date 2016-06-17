@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/padrao_professor.xhtml">
+	<ui:define name="conteudo"><div id="conteudo"><div id="formulario_cadastro">
+		
+		<div id="quadro_cadastrar_titulo">
+			<h1>Configurações</h1>
+		</div>
+				
+		<div id="quadro_cadastrar"><div class="col-md-7">
+			<h:form>
+				<h:panelGroup rendered="#{not empty sessaoMB.nomeUsuarioLogado}">
+					<div class="form-group id">
+						<label for="exampleId">ID</label>
+						<h:inputText styleClass="form-control" readonly="true"
+							value="#{sessaoMB.nomeUsuarioLogado}" id="exampleId" />
+					</div>
+				</h:panelGroup>
+				<h:inputHidden value="#{perguntaMB.pergunta.id}"  />
+				
+					<label for="exampleInputNome">Titulo</label>
+					<h:inputText styleClass="form-control"	value="#{perguntaMB.pergunta.tituloPergunta}" id="exampleInputTiulo" />
+				
+					<label for="exampleInputTitulo">Descrição</label>
+					<h:inputTextarea cols="30" rows="10"  styleClass="form-control textareaformulario" value="#{perguntaMB.pergunta.descricao}" id="exampleInputDescricao" />
+					
+				<button type="reset">Limpar</button>
+				<h:commandButton styleClass="btn btn-success" action="#{perguntaMB.salvar}" value="Salvar" />
+			
+			</h:form>
+		</div>
+		</div>
+		
+		<h:outputScript name="/js/datepicker-component.js" />
+	</div></div></ui:define>
+
+</ui:composition>
+</html>
