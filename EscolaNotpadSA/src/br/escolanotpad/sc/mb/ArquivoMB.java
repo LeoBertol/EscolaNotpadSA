@@ -23,6 +23,7 @@ public class ArquivoMB {
 	private Arquivo arquivo;
 	private Part arquivoUploaded;
 	private Long editarId;	
+	private Usuario usuarioQueUplou;
 		
 	@PostConstruct
 	public void init(){
@@ -36,7 +37,7 @@ public class ArquivoMB {
 		}
 		return listaArquivos;
 	}
-
+	
 	public void setListaArquivos(List<Arquivo> listaArquivos) {
 		this.listaArquivos = listaArquivos;
 	}
@@ -72,6 +73,14 @@ public class ArquivoMB {
 	public void setEditarId(Long editarId) {
 		this.editarId = editarId;
 	}
+	
+	public Usuario getUsuarioQueUplou() {
+		return usuarioQueUplou;
+	}
+
+	public void setUsuarioQueUplou(Usuario usuarioQueUplou) {
+		this.usuarioQueUplou = usuarioQueUplou;
+	}
 
 	public void carregarEdicao(){
 		if(editarId != null && !FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest()){
@@ -104,5 +113,7 @@ public class ArquivoMB {
 		return "listaArquivo";	
 		
 	}	
+	
+	
 	
 }

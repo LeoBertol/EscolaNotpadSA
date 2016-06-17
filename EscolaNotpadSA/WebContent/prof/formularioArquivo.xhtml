@@ -11,7 +11,7 @@
 	<f:event listener="#{arquivoMB.carregarEdicao}" type="preRenderView" />
 </f:metadata>
 
-<ui:composition template="/WEB-INF/template/padrao_professor.xhtml">
+<ui:composition template="/WEB-INF/template/padrao_admin.xhtml">
 	<ui:define name="conteudo"><div id="conteudo"><div id="formulario_cadastro">
 		
 		<div id="quadro_cadastrar_titulo">
@@ -35,7 +35,11 @@
 						<f:selectItems value="#{turmaMB.listaTurmas}" var="turma" 
 							itemLabel="#{turma.titulo}" itemValue="#{turma}" />
 					</h:selectOneMenu>
-				
+					
+					<h:selectOneMenu style="display: none;" value="#{arquivoMB.arquivo.usuario}" styleClass="form-control">
+						<f:selectItem itemValue="#{sessaoMB.usuarioLogado}" itemLabel="#{sessaoMB.idUsuarioLogado}" />
+					</h:selectOneMenu>
+					
 					<label for="exampleInputNome">Nome</label>
 					<h:inputText styleClass="form-control"	value="#{arquivoMB.arquivo.nome}" id="exampleInputNome" />
 				

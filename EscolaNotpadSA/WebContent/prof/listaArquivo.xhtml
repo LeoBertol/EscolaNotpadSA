@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="/WEB-INF/template/padrao_professor.xhtml">
+<ui:composition template="/WEB-INF/template/padrao_admin.xhtml">
 	<ui:define name="conteudo">
 		<div id="conteudo">
 
@@ -41,7 +41,7 @@
 									style="float: left; margin-top: 1px; margin-right: 3px;"></span>
 							</button>
 							
-							<h:link outcome="/prof/formularioArquivo" title="Editar">
+							<h:link outcome="/admin/formularioArquivo" title="Editar">
 								<f:param name="id" value="#{arquivo.id}" />
 								<span class="glyphicon glyphicon-pencil" aria-hidden="true"
 									style="float: left; margin-top: 1px; margin-right: 5px;"></span>
@@ -78,10 +78,20 @@
 												<h:outputText value="#{arquivo.turma.titulo}" />
 											</p>
 											<p>
+												<b>Responsável: </b>
+												<h:outputText value="#{arquivo.usuario.nome}" />
+											</p>
+											<p>
+												<b>Em: </b>
+												<h:outputText value="#{arquivo.diaCadastrado}">
+													<f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt_BR" dateStyle="long" />
+												</h:outputText>
+											</p>
+											<p>
 												<b>Descrição:</b>
 											</p>
 											<h:inputTextarea readonly="true" cols="30" rows="10" value="#{arquivo.descricao}" styleClass="form-control textareaformulario" id="exampleInputArquivo" />
-								
+									
 											<center>
 												<p>
 													<b>Arquivo:</b>

@@ -78,10 +78,20 @@
 												<h:outputText value="#{arquivo.turma.titulo}" />
 											</p>
 											<p>
+												<b>Responsável: </b>
+												<h:outputText value="#{arquivo.usuario.nome}" />
+											</p>
+											<p>
+												<b>Em: </b>
+												<h:outputText value="#{arquivo.diaCadastrado}">
+													<f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt_BR" dateStyle="long" />
+												</h:outputText>
+											</p>
+											<p>
 												<b>Descrição:</b>
 											</p>
 											<h:inputTextarea readonly="true" cols="30" rows="10" value="#{arquivo.descricao}" styleClass="form-control textareaformulario" id="exampleInputArquivo" />
-								
+									
 											<center>
 												<p>
 													<b>Arquivo:</b>

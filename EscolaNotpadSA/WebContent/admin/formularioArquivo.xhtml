@@ -35,7 +35,11 @@
 						<f:selectItems value="#{turmaMB.listaTurmas}" var="turma" 
 							itemLabel="#{turma.titulo}" itemValue="#{turma}" />
 					</h:selectOneMenu>
-				
+					
+					<h:selectOneMenu style="display: none;" value="#{arquivoMB.arquivo.usuario}" styleClass="form-control">
+						<f:selectItem itemValue="#{sessaoMB.usuarioLogado}" itemLabel="#{sessaoMB.idUsuarioLogado}" />
+					</h:selectOneMenu>
+					
 					<label for="exampleInputNome">Nome</label>
 					<h:inputText styleClass="form-control"	value="#{arquivoMB.arquivo.nome}" id="exampleInputNome" />
 				

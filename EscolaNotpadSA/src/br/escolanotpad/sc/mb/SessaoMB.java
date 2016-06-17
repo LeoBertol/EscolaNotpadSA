@@ -57,6 +57,10 @@ public class SessaoMB {
 		return usuarioLogado == null ? "" : usuarioLogado.getNome();
 	}
 	
+	public Long getIdUsuarioLogado(){
+		return usuarioLogado == null ? null : usuarioLogado.getId();
+	}
+	
 	public String sair(){
 		usuarioLogado = null;
 		return "/login?faces-redirect=true";
