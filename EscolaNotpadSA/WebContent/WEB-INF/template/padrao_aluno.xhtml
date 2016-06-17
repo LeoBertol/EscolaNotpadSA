@@ -46,7 +46,7 @@
 						style="text-align: center; margin-top: 10px; margin-bottom: 10px; color: #000;">
 						Escola <small style="color: #000;">NotPad</small>
 					</h1>
-					<h:link outcome="/index" value="Inicio"
+					<h:link outcome="/aluno/index" value="Inicio"
 						styleClass="list-group-item list-group-item-success">
 						<span class="glyphicon glyphicon-home " aria-hidden="true"
 							style="float: left; margin-top: 1px; margin-right: 3px;"></span>
@@ -82,6 +82,37 @@
 							style="float: left; margin-top: -2px; margin-right: 3px;"></i>
 						</h:link>
 					
+					</div>
+
+					<a href="#demo6" class="list-group-item list-group-item-success"
+						data-toggle="collapse" data-parent="#MainMenu"><i
+						class="glyphicon glyphicon-education" aria-hidden="true"
+						style="float: left; margin-right: 3px;"></i>Minhas Turmas</a>
+					<div class="collapse" id="demo6">
+						
+						<h:link outcome="/aluno/listaTurma" value="Ver Minhas Turmas"
+							styleClass="list-group-item2">
+							<span class="glyphicon glyphicon-list-alt" aria-hidden="true"
+								style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+						</h:link>
+					
+					</div>
+					
+						<a href="#arquivo" class="list-group-item list-group-item-success"
+						data-toggle="collapse" data-parent="#MainMenu"><i
+						class="glyphicon glyphicon-file"
+						style="float: left; margin-right: 3px;"></i>Arquvios</a>
+					<div class="collapse" id="arquivo">
+						<h:link outcome="/aluno/formularioArquivo" value="Cadastrar Arquivo"
+							styleClass="list-group-item2">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"
+								style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+						</h:link>
+						<h:link outcome="/prof/listaArquivo" value="Listar Arquivos"
+							styleClass="list-group-item2">
+							<span class="glyphicon glyphicon-list-alt" aria-hidden="true"
+								style="float: left; margin-top: 1px; margin-right: 3px;"></span>
+						</h:link>
 					</div>
 
 					<a href="index.xhtml"

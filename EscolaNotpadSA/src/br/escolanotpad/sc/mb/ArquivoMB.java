@@ -87,7 +87,7 @@ public class ArquivoMB {
 			arquivoRN.salvar(arquivo);
 			listaArquivos = null;
 						
-			return "/admin/listaArquivo";
+			return "listaArquivo";
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "";
@@ -101,7 +101,7 @@ public class ArquivoMB {
 		CompartilhamentoDeArquivoUtil.removerArquivo(arquivo.getNomeArquivo());						
 		arquivoRN.excluir(idExcluir);
 		listaArquivos = null;				
-		return "/admin/listaArquivo";	
+		return "listaArquivo";	
 		
 	}	
 	
