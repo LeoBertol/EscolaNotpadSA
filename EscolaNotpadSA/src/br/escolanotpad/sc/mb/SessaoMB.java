@@ -1,5 +1,7 @@
 package br.escolanotpad.sc.mb;
 
+import java.util.Date;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -57,8 +59,24 @@ public class SessaoMB {
 		return usuarioLogado == null ? "" : usuarioLogado.getNome();
 	}
 	
-	public Long getIdUsuarioLogado(){
-		return usuarioLogado == null ? null : usuarioLogado.getId();
+	public String getEmailUsuarioLogado(){
+		return usuarioLogado == null ? "" : usuarioLogado.getEmail();
+	}
+	
+	public Long getIDUsuarioLogado(){
+		return usuarioLogado ==  null ? null: usuarioLogado.getId();
+	}
+	
+	public String getFotoUsuarioLogado(){
+		return usuarioLogado ==  null ? null: usuarioLogado.getFotoPerfil();
+	}
+	
+	public Date getDataUsuarioLogado(){
+		return usuarioLogado ==  null ? null: usuarioLogado.getDataNascimento();
+	}
+	
+	public String getCPFUsuarioLogado(){
+		return usuarioLogado ==  null ? null: usuarioLogado.getCpf();
 	}
 	
 	public String sair(){
@@ -66,31 +84,29 @@ public class SessaoMB {
 		return "/login?faces-redirect=true";
 	}
 	
-	public String entrar(){
+	public String entrar() {
 		UsuarioRN usuarioRN = new UsuarioRN();
-		Usuario usuario = usuarioRN.buscarPorEmail(emailForm);
-		
-		if(usuario == null ||
-				!usuario.getEmail().equalsIgnoreCase(emailForm) ||
-				!usuario.getSenha().equals(senhaForm)){
-			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage("E-mail ou senha estão incorretos"));
-			return "";
-		}
-				
-		usuarioLogado = usuario;
-		
-		if(usuario.getPerfil().equals(Perfil.Administrador)){
-			redirecionamento = "/admin/index?faces-redirect=true";
-		}else if(usuario.getPerfil().equals(Perfil.Aluno)){
-			redirecionamento = "/aluno/index?faces-redirect=true";
-		}else if(usuario.getPerfil().equals(Perfil.Professor)){
-			redirecionamento = "/prof/index?faces-redirect=true";
-		}
-		
-		return redirecionamento;
+		if (emailForm != null && !emailForm.isEmpty()&& senhaForm != null && !senhaForm.isEmpty()) {
 			
+			Usuario usuario = usuarioRN.buscarPorEmail(emailForm);
+
+			if (usuario != null && usuario.getEmail().equalsIgnoreCase(emailForm)&& usuario.getSenha().equals(senhaForm)) {
+				usuarioLogado = usuario;
+				
+				if(usuario.getPerfil().equals(Perfil.Administrador)){
+					redirecionamento = "/admin/index?faces-redirect=true";
+				}else if(usuario.getPerfil().equals(Perfil.Aluno)){
+					redirecionamento = "/aluno/index?faces-redirect=true";
+				}else if(usuario.getPerfil().equals(Perfil.Professor)){
+					redirecionamento = "/prof/index?faces-redirect=true";
+				}
+				
+				return redirecionamento;
+			}
+		}
+
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("E-mail ou senha incorretos"));
+		return "";
 	}
 
-	
 }

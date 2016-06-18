@@ -2,6 +2,7 @@ package br.escolanotpad.sc.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.escolanotpad.sc.model.entity.Perfil;
@@ -42,7 +43,11 @@ public class UsuarioDAO extends DAO {
 	public Usuario buscarPorEmail(String email) {
 		Query query = getEM().createQuery("From Usuario u Where u.email = :email", Usuario.class);
 		query.setParameter("email", email);
-		return (Usuario) query.getSingleResult();
+		try {
+ 			return (Usuario) query.getSingleResult();
+ 		} catch (NoResultException exceptio) {
+ 			return null;
+ 		}
 	}
 	
 		
