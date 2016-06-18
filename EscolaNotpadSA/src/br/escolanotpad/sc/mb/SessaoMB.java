@@ -63,7 +63,7 @@ public class SessaoMB {
 		return usuarioLogado == null ? "" : usuarioLogado.getEmail();
 	}
 	
-	public Long getIDUsuarioLogado(){
+	public Long getIdUsuarioLogado(){
 		return usuarioLogado ==  null ? null: usuarioLogado.getId();
 	}
 	
