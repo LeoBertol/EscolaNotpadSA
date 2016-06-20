@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 import br.escolanotpad.sc.commons.CompartilhamentoDeArquivoUtil;
 import br.escolanotpad.sc.model.ArquivoRN;
 import br.escolanotpad.sc.model.entity.Arquivo;
+import br.escolanotpad.sc.model.entity.Turma;
 import br.escolanotpad.sc.model.entity.Usuario;
 
 @ViewScoped
@@ -24,11 +25,13 @@ public class ArquivoMB {
 	private Part arquivoUploaded;
 	private Long editarId;	
 	private Usuario usuarioQueUplou;
+	private Turma turma;
 		
 	@PostConstruct
 	public void init(){
 		arquivoRN = new ArquivoRN();
 		arquivo = new Arquivo();
+		turma = new Turma();
 	}
 
 	public List<Arquivo> getListaArquivos() {
@@ -45,7 +48,7 @@ public class ArquivoMB {
 	public ArquivoRN getArquivoRN() {
 		return arquivoRN;
 	}
-
+	
 	public void setArquivoRN(ArquivoRN arquivoRN) {
 		this.arquivoRN = arquivoRN;
 	}
@@ -80,6 +83,14 @@ public class ArquivoMB {
 
 	public void setUsuarioQueUplou(Usuario usuarioQueUplou) {
 		this.usuarioQueUplou = usuarioQueUplou;
+	}
+	
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 
 	public void carregarEdicao(){

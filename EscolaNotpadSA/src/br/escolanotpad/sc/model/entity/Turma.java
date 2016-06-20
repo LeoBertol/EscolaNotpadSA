@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Turma {
@@ -24,6 +25,8 @@ public class Turma {
 	private Curso curso;
 	@ManyToMany
 	private List<Usuario> alunosTurma;
+	@OneToMany(mappedBy = "turma")
+	private List<Arquivo> listaArquivos;
 	
 	public Long getId() {
 		return id;
@@ -72,6 +75,13 @@ public class Turma {
 	}
 	public void setAlunosTurma(List<Usuario> alunosTurma) {
 		this.alunosTurma = alunosTurma;
+	}
+	
+	public List<Arquivo> getListaArquivos() {
+		return listaArquivos;
+	}
+	public void setListaArquivos(List<Arquivo> listaArquivos) {
+		this.listaArquivos = listaArquivos;
 	}
 	@Override
 	public int hashCode() {
