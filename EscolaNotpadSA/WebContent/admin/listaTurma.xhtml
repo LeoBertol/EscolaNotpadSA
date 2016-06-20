@@ -16,7 +16,7 @@
 		
 		<div id="listar_cadastros"><h:form>
 			<h:dataTable value="#{turmaMB.listaTurmas}" var="classe"	styleClass="table table-striped">
-								
+																	
 				<h:column>
 					<f:facet name="header">ID</f:facet>
 					<h:outputText value="#{classe.id}" />
@@ -36,32 +36,18 @@
 					<f:facet name="header">Professor Responsavel</f:facet>
 					<h:outputText value="#{classe.professor.nome}" />
 				</h:column>
-				
+								
 				<h:column>
-					<f:facet name="header">Data de Início</f:facet>
-					<h:outputText value="#{classe.dataDeInicio}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText>
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Data de Termino</f:facet>
-					<h:outputText value="#{classe.dataDeTermino}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText>
-				</h:column>
-				
-				<h:column>
-				
+						     							
 					<button type="button" data-toggle="modal" data-target="#myModal2#{classe.id}" style="background-color: transparent; border: none; float: left">
 						<span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
 					</button>
-				
+					
 					<button type="button" data-toggle="modal" data-target="#myModal#{classe.id}" style="background-color: transparent; border: none; float: left">
 						<span class="glyphicon glyphicon-search" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
 					</button>
 					
-					<h:link  outcome="/admin//formularioTurma" title="Editar">
+					<h:link  outcome="/admin/formularioTurma" title="Editar">
 						<f:param name="id" value="#{classe.id}" />
 						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 5px;"></span>
 					</h:link>
@@ -109,46 +95,29 @@
 					      		
 									<h:column>
 									
+										<center><b><h:outputText value="#{arquivo.nome}" /></b></center>
+										<p style="margin-top:10px;"><b>Por: </b><h:outputText value="#{arquivo.usuario.nome}" /></p>
+										<p><b>Em: </b>
+										<h:outputText value="#{arquivo.diaCadastrado}">
+											<f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt_BR" dateStyle="long" />
+										</h:outputText></p>
 										<p><b>Descrição: </b></p>
-										<h:inputTextarea readonly="true" cols="30" rows="10" value="#{arquivo.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
+										<p><h:outputText value="#{arquivo.descricao}" /></p>
 										
-									</h:column>
+										<center>
+											<p>
+												<b>Arquivo:</b>
+											</p>
+											<h:link href="compartilhamentoDeArquivo/#{arquivo.nomeArquivo}"  target="_blank">
+											<h:graphicImage styleClass="img-thumbnail"
+												style="height:200px; width: 200px; margin-bottom: 30px;"
+												name="compartilhamentoDeArquivo/#{arquivo.nomeArquivo}"/></h:link>
+										</center>
+										
+									</h:column>								
 									
-								</h:dataTable>
-									
-					      
-					      		<h:column>			     
-					     			<button type="button" data-toggle="modal" data-target="#myModal2#{classe.id}" style="background-color: transparent; border: none; float: left">
-										<span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
-									</button>
-								</h:column>
-								
-								<h:column>			     
-					     			<button type="button" data-toggle="modal" data-target="#myModal2#{classe.id}" style="background-color: transparent; border: none; float: left">
-										<span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span>
-									</button>
-								</h:column>
-					      					     
-					      					     
-					      	<p><b></b> <h:outputText value="#{arquivo.nome}" /></p>
-									<p><b>Por: </b></p>
-									<p><b>Data: </b></p>
-									
-									  <h:dataTable value="#{arquivoMB.listaArquivos}" var="arquivo"	styleClass="table table-striped">
-									  <h:column>
-									<p><b>Descrição: </b></p>
-									<h:inputTextarea readonly="true" cols="30" rows="10" value="#{arquivo.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
-									</h:column>
-									</h:dataTable>
-									
-									<center>
-										<p>
-											<b>Arquivo:</b>
-										</p>
-										<h:graphicImage styleClass="img-thumbnail"
-											style="height:200px; width: 200px;"
-											name="compartilhamentoDeArquivo/#{arquivo.nomeArquivo}" />
-									</center>
+								</h:dataTable>								
+					      			
 					      </div>
 					    </div>
 					  </div>
