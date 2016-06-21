@@ -53,6 +53,16 @@
 									<p><b>Titulo: </b> <h:outputText value="#{pergunta.tituloPergunta}" /></p>
 									<p><b>Descrição:</b></p>
 									<h:inputTextarea readonly="true" cols="30" rows="10" value="#{pergunta.descricao}" styleClass="form-control textareaformulario" id="exampleInputDescricao" />
+									<p><b>Respostas:</b></p>
+									<h:dataTable value="#{pergunta.alternativasCorreta}" var="resposta" styleClass="table table-striped">
+							     		<h:column>
+							     			<p><h:outputText value="#{resposta.descricao}" /></p>
+							     		</h:column>
+							     		<h:column>
+							     			<p><h:outputText value="#{resposta.correta}" /></p>
+							     		</h:column>
+							     	</h:dataTable>
+								
 								</div>
 							</div>
 						</div>

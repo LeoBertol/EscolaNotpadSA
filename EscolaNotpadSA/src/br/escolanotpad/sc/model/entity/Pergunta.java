@@ -3,6 +3,7 @@ package br.escolanotpad.sc.model.entity;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.bean.ViewScoped;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,9 +22,7 @@ public class Pergunta {
 	private String tituloPergunta;
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
-	@ManyToMany
-	private List<Resposta> respostasPergunta;
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Resposta> alternativasCorreta;
 		
 	public Long getId() {
@@ -43,13 +42,6 @@ public class Pergunta {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-	
-	public List<Resposta> getRespostasPergunta() {
-		return respostasPergunta;
-	}
-	public void setRespostasPergunta(List<Resposta> respostasPergunta) {
-		this.respostasPergunta = respostasPergunta;
 	}
 	public List<Resposta> getAlternativasCorreta() {
 		return alternativasCorreta;

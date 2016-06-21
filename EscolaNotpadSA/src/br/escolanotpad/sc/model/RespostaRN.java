@@ -29,5 +29,9 @@ public class RespostaRN {
 	public void excluir(Long id) {
 		dao.excluir(id);
 	}
+
+	public List<Resposta> buscarPorIdDaPergunta(Long id){
+		return dao.buscarPorIdDaPergunta(id);
+	}
 	
 }

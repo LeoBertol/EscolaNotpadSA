@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Resposta {
@@ -20,8 +21,7 @@ public class Resposta {
 	private Boolean correta;
 	@ManyToOne
 	private Pergunta pergunta;
-	
-	
+		
 	public Long getId() {
 		return id;
 	}
@@ -40,13 +40,13 @@ public class Resposta {
 	public void setCorreta(Boolean correta) {
 		this.correta = correta;
 	}
+	
 	public Pergunta getPergunta() {
 		return pergunta;
 	}
 	public void setPergunta(Pergunta pergunta) {
 		this.pergunta = pergunta;
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

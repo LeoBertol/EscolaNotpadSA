@@ -26,5 +26,11 @@ public class RespostaDAO extends DAO{
 		Resposta resposta = getEM().getReference(Resposta.class, id);
 		getEM().remove(resposta);
 	}
+
+	public List<Resposta> buscarPorIdDaPergunta(Long id){
+		Query query = getEM().createQuery("From Resposta where pergunta = :pergunta", Resposta.class);
+		query.setParameter("pergunta", id);
+		return query.getResultList();
+	}
 	
 }
