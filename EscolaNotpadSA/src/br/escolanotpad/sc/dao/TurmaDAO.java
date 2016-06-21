@@ -6,9 +6,10 @@ import java.util.List;
 import javax.persistence.Query;
 
 import br.escolanotpad.sc.model.entity.Turma;
+import br.escolanotpad.sc.model.entity.Usuario;
 
 public class TurmaDAO extends DAO{
-	
+		
 	public void salvar(Turma turma) throws SQLException{
 		getEM().merge(turma);
 	}
@@ -25,6 +26,14 @@ public class TurmaDAO extends DAO{
 	public void excluir(Long id){
 		Turma turma = getEM().getReference(Turma.class, id);
 		getEM().remove(turma);
+	}
+
+	public List<Turma> listarTurmaPorUsuario(Long usuarioLogado) {
+		Query query = getEM().createQuery(
+				"From Turma t Where t.professor.id = :idUsuario"
+				, Turma.class);	
+		query.setParameter("idUsuario", usuarioLogado);
+		return query.getResultList();
 	}
 	
 }
