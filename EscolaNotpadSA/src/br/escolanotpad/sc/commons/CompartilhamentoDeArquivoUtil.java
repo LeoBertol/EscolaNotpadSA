@@ -19,6 +19,7 @@ public class CompartilhamentoDeArquivoUtil {
 		TIPOS_PERMITIDOS.put("image/jpeg",".jpg");
 		TIPOS_PERMITIDOS.put("image/png",".png");
 		TIPOS_PERMITIDOS.put("image/gif",".gif");
+		TIPOS_PERMITIDOS.put("application/pdf", ".pdf");		
 	}
 	
 	public static String moverArquivo(Part arquivoUploaded, String arquivoAntigo) throws IOException{

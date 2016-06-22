@@ -41,16 +41,6 @@
 									style="float: left; margin-top: 1px; margin-right: 3px;"></span>
 							</button>
 							
-							<h:link outcome="/admin/formularioArquivo" title="Editar">
-								<f:param name="id" value="#{arquivo.id}" />
-								<span class="glyphicon glyphicon-pencil" aria-hidden="true"
-									style="float: left; margin-top: 1px; margin-right: 5px;"></span>
-							</h:link>
-							
-								<h:commandLink onclick="return confirm('Tem certeza da exclusão do arquivo #{arquivo.nome}');" title="Excluir"
-						action="#{arquivoMB.excluir(arquivo.id)}"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; margin-top: 1px; margin-right: 3px;"></span></h:commandLink>
-						
-
 							<div class="modal fade" id="myModal#{arquivo.id}" tabindex="-1" role="dialog"
 								aria-labelledby="myModalLabel">
 								<div class="modal-dialog" role="document">
@@ -84,7 +74,7 @@
 											<p>
 												<b>Em: </b>
 												<h:outputText value="#{arquivo.diaCadastrado}">
-													<f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt_BR" dateStyle="long" />
+													<f:convertDateTime pattern="dd/MM/yyyy"/>
 												</h:outputText>
 											</p>
 											<p>

@@ -28,7 +28,10 @@
 					</div>
 				</h:panelGroup>
 				<h:inputHidden value="#{arquivoMB.arquivo.id}"  />
-				
+									
+					<label for="exampleInputNome">Nome</label>
+					<h:inputText styleClass="form-control"	value="#{arquivoMB.arquivo.nome}" id="exampleInputNome" />
+								
 					<label>Turma</label>
 					<h:selectOneMenu styleClass="form-control" value="#{arquivoMB.arquivo.turma}">
 						<f:selectItem itemLabel="-- Selecione --" />						
@@ -39,10 +42,17 @@
 					<h:selectOneMenu style="display: none;" value="#{arquivoMB.arquivo.usuario}" styleClass="form-control">
 						<f:selectItem itemValue="#{sessaoMB.usuarioLogado}" itemLabel="#{sessaoMB.idUsuarioLogado}" />
 					</h:selectOneMenu>
-					
-					<label for="exampleInputNome">Nome</label>
-					<h:inputText styleClass="form-control"	value="#{arquivoMB.arquivo.nome}" id="exampleInputNome" />
-				
+									
+					<div class='input-group date datetimepicker' style="display: none;">
+						<h:inputText styleClass="form-control"
+							value="#{arquivoMB.arquivo.diaCadastrado}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:inputText>
+						<span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+                    </div>
+                    					
 					<label for="exampleInputTitulo">Descrição</label>
 					<h:inputTextarea cols="30" rows="10"  styleClass="form-control textareaformulario" value="#{arquivoMB.arquivo.descricao}" id="exampleInputDescricao" />
 					
@@ -62,7 +72,6 @@
 			</h:form>
 		</div>
 		</div>
-		
 	</div></div></ui:define>
 
 </ui:composition>

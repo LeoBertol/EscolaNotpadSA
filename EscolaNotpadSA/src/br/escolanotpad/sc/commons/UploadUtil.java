@@ -13,7 +13,7 @@ import javax.servlet.http.Part;
 public class UploadUtil {
 
 	private static final Map<String, String> TIPOS_PERMITIDOS = new HashMap<String, String>();
-	private static final String PASTA_UPLOADS = "/resources/img/uploads/";
+	private static final String PASTA_UPLOADS = "/resources/fotosDePerfil/";
 	
 	static{
 		TIPOS_PERMITIDOS.put("image/jpeg",".jpg");
