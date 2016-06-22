@@ -25,14 +25,27 @@
         <h:dataTable value="#{provaMB.prova.perguntasProva}" var="pergunta" styleClass="table table-striped">
      		<h:column>
      			<f:facet name="header">Pergunta</f:facet>
-     			<h:outputText value="#{pergunta.tituloPergunta}" />
+     			<h1><h:outputText value="#{pergunta.tituloPergunta}" /></h1>
      			<h:dataTable value="#{pergunta.alternativasCorreta}" var="alternativas" styleClass="table table-striped">
 					<h:column>
 						<p><h:outputText value="#{alternativas.descricao}" /></p>
 	     			</h:column>
+	     			<h:column>
+	     			<div class="checkbox">
+						<label>
+							<h:selectManyCheckbox value="#{userData.data}">
+								<f:selectItem itemValue="Correta" temLabel="Correta" />
+							</h:selectManyCheckbox>
+						</label>
+					</div>
+					</h:column>
 	     		</h:dataTable>
+	     		
      		</h:column>
-     	</h:dataTable>   
+     		
+     	</h:dataTable> 
+     	
+     	<h:commandButton styleClass="btn btn-success" style="margin-bottom: 15px;" ction="#{arquivoMB.salvar}" value="Enviar Prova" />
             
                      
 				

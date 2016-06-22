@@ -50,5 +50,17 @@ public class UsuarioDAO extends DAO {
  		}
 	}
 	
+	public List<Usuario> listarAlunosCadastrados() {
+		Query query = getEM().createQuery("From Usuario where perfil = :perfil order by perfil", Usuario.class);
+		query.setParameter("perfil", Perfil.Aluno);
+		return query.getResultList();
+	}
+
+	public List<Usuario> listarAdministradores() {
+		Query query = getEM().createQuery("From Usuario where perfil = :perfil order by perfil", Usuario.class);
+		query.setParameter("perfil", Perfil.Administrador);
+		return query.getResultList();
+	}
+	
 		
 }

@@ -37,8 +37,16 @@ public class UsuarioRN {
 		return dao.listarProfessores();
 	}
 	
+	public List<Usuario> listarAdministradores() {
+		return dao.listarAdministradores();
+	}
+	
 	public Usuario buscarPorEmail(String email) {
 		return dao.buscarPorEmail(email);
 	}
 
+	public List<Usuario> listarAlunosCadastrados() {
+		return dao.listarAlunosCadastrados();
+	}
+	
 }

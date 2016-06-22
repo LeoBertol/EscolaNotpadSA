@@ -105,11 +105,12 @@
 					
 				
 
-					<a href="index.xhtml"
-						class="list-group-item list-group-item-success"
-						data-toggle="collapse" data-parent="#MainMenu"><i
-						class="step fi-wrench size-18"
-						style="float: left; margin-right: -4px;"></i>Configuração</a>
+					<h:link outcome="/aluno/configuracao" value="Configurações"
+						styleClass="list-group-item list-group-item-success">
+						<span class="step fi-wrench size-18" aria-hidden="true"
+							style="float: left; margin-top: 1px; margin-right: -3px;"></span>
+					</h:link>
+									
 						
 					<h:form>
 						<h:commandLink action="#{sessaoMB.sair}" value="Sair" styleClass="list-group-item list-group-item-success">

@@ -10,6 +10,7 @@ import javax.servlet.http.Part;
 
 import br.escolanotpad.sc.commons.UploadUtil;
 import br.escolanotpad.sc.model.UsuarioRN;
+import br.escolanotpad.sc.model.entity.Perfil;
 import br.escolanotpad.sc.model.entity.Usuario;
 
 @ManagedBean
@@ -21,6 +22,8 @@ public class UsuarioMB {
 	private List<Usuario> listaUsuarios;
 	private List<Usuario> listaProfessores;
 	private List<Usuario> listaAlunos;
+	private List<Usuario> listaAlunosCadastrados;
+	private int tamanho;
 	
 	@PostConstruct
 	public void depoisDeConstruir(){
@@ -123,6 +126,41 @@ public class UsuarioMB {
 			return "";
 		}
 				
+	}
+	
+	public String alunosCadastrados(){
+		if(listaAlunosCadastrados == null){
+			if(usuario.getPerfil().equals(Perfil.Professor)){
+				listaAlunosCadastrados = usuarioRN.listarProfessores();
+				tamanho = listaAlunosCadastrados.size();
+			}else if(usuario.getPerfil().equals(Perfil.Aluno)){
+				listaAlunosCadastrados = usuarioRN.listarAlunos();
+				tamanho = listaAlunosCadastrados.size();
+			}else if(usuario.getPerfil().equals(Perfil.Administrador)){
+				listaAlunosCadastrados = usuarioRN.listarAdministradores();
+				tamanho = listaAlunosCadastrados.size();
+			}
+		}
+		return "/admin/relatorioAlunosCadastrados";
+	}
+
+	public List<Usuario> getListaAlunosCadastrados() {
+		if(listaAlunos == null){
+			listaAlunos = usuarioRN.listarAlunos();
+		}
+		return listaAlunosCadastrados;
+	}
+
+	public void setListaAlunosCadastrados(List<Usuario> listaAlunosCadastrados) {
+		this.listaAlunosCadastrados = listaAlunosCadastrados;
+	}
+
+	public int getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(int tamanho) {
+		this.tamanho = tamanho;
 	}
 
 }

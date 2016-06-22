@@ -124,32 +124,12 @@
 					
 					</div>
 					
-					<a href="#demo5" class="list-group-item list-group-item-success"
-						data-toggle="collapse" data-parent="#MainMenu"><i
-						class="fi-page-add size-18" aria-hidden="true"
-						style="float: left; margin-top: -2px; margin-right: 3px;"></i>Respostas</a>
-					<div class="collapse" id="demo5">
-						
-						<h:link outcome="/prof/formularioResposta" value="Cadastrar Respostas"
-							styleClass="list-group-item2">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"
-								style="float: left; margin-top: 1px; margin-right: 3px;"></span>
-						</h:link>
-						
-						<h:link outcome="/prof/listaResposta" value="Visualizar Respostas"
-							styleClass="list-group-item2">
-							<span class="glyphicon glyphicon-list-alt" aria-hidden="true"
-								style="float: left; margin-top: 1px; margin-right: 3px;"></span>
-						</h:link>
-					
-					</div>
-				
-					<a href="index.xhtml"
-						class="list-group-item list-group-item-success"
-						data-toggle="collapse" data-parent="#MainMenu"><i
-						class="step fi-wrench size-18"
-						style="float: left; margin-right: -4px;"></i>Configuração</a>
-						
+					<h:link outcome="/prof/configuracao" value="Configurações"
+						styleClass="list-group-item list-group-item-success">
+						<span class="step fi-wrench size-18" aria-hidden="true"
+							style="float: left; margin-top: 1px; margin-right: -3px;"></span>
+					</h:link>
+											
 					<h:form>
 						<h:commandLink action="#{sessaoMB.sair}" value="Sair" styleClass="list-group-item list-group-item-success">
 							<span class="glyphicon glyphicon-log-in" aria-hidden="true"	style="float: left; margin-top: 1px; margin-right: 4px;"></span>
