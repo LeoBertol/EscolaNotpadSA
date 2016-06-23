@@ -8,4 +8,4 @@ Guilherme Bertol da Silva / Leonardo Bertol da Silva
 
 Curso:Técnico em Informática para Internet
 
-Início: 20/04/2016
+Início: 20/04/2016 / Término: 23/06/2016
